@@ -3,6 +3,7 @@
 ^\.github$
 ^\.git$
 ^\.gitignore$
+^\.gitattributes$
 ^LICENSE\.md$
 ^CITATION\.cff$
 ^tools$

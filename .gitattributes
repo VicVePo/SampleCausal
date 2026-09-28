@@ -1,0 +1,3 @@
+# Frozen engine resources are checked against their original byte-level hashes.
+# Preserve their original line endings even when core.autocrlf is enabled.
+inst/engine/** -text
