@@ -1,4 +1,4 @@
 bibentry(bibtype = "Manual",
   title = "SampleCausal: Sample Size Planning for Selected Causal Inference Methods",
   author = person("Victor J.", "Vera-Ponce"), year = "2026",
-  note = "R package version 1.0.1; computational validation with artificial scenarios")
+  note = "R package version 1.0.2; mathematical engine 1.0.1; computational validation with artificial scenarios")

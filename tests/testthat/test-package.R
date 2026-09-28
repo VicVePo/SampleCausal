@@ -123,6 +123,6 @@ test_that("Shiny construction uses packaged assets and an external export path",
   expect_s3_class(app, "shiny.appobj")
   expect_identical(getwd(), before)
   expect_identical(search(), search_before)
-  expect_true(dir.exists(shiny::resourcePaths()[["samplecausal-assets-101"]]))
+  expect_true(dir.exists(shiny::resourcePaths()[["samplecausal-assets-102"]]))
   expect_false(exists("SC_ROOT", envir = .GlobalEnv, inherits = FALSE))
 })

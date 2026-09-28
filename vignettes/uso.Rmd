@@ -127,4 +127,6 @@ run_samplecausal()
 run_samplecausal(export_dir = file.path(path.expand("~"), "SampleCausal-exports"))
 ```
 
-La aplicación procesa los cálculos en el equipo local. Por defecto, sus copias de servidor son temporales; conservarlas mediante descarga o elegir una carpeta persistente. La evaluación del proyecto es exclusivamente computacional. Las pruebas de instalación no sustituyen a las simulaciones del estudio ni extienden sus dominios de validez.
+La aplicación procesa los cálculos en el equipo local. La carpeta de exportación se crea y se fija con una ruta absoluta al construir la aplicación; cambiar posteriormente el directorio de trabajo de R no redirige las exportaciones. Por defecto, sus copias de servidor son temporales; conservarlas mediante descarga o elegir una carpeta persistente. La evaluación del proyecto es exclusivamente computacional. Las pruebas de instalación no sustituyen a las simulaciones del estudio ni extienden sus dominios de validez.
+
+La versión 1.0.2 del paquete conserva el motor 1.0.1: `software_version` en los resultados indica la versión del motor y `packageVersion("SampleCausal")` identifica la distribución instalada.

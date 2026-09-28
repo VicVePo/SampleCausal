@@ -21,6 +21,10 @@ Browser downloads and the save button use \code{export_dir}. Installation
 files remain read-only. Download any wanted files or choose a persistent
 directory before the R session ends. This is a computational tool using
 explicit assumptions; the accompanying evaluation does not involve users.
+The destination directory is created when this function is called and its
+absolute path is retained, so changing the working directory before starting
+the application does not redirect its exports. An invalid destination
+produces an error before the application is created.
 }
 \examples{
 app <- samplecausal_app(export_dir = tempfile("samplecausal-app-"))

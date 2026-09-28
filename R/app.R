@@ -6,16 +6,24 @@
 #'   files remain read-only. Download any wanted files or choose a persistent
 #'   directory before the R session ends. This is a computational tool using
 #'   explicit assumptions; the accompanying evaluation does not involve users.
+#'   The destination directory is created when this function is called and its
+#'   absolute path is retained, so changing the working directory before starting
+#'   the application does not redirect its exports. An invalid destination
+#'   produces an error before the application is created.
 #' @examples
 #' app <- samplecausal_app(export_dir = tempfile("samplecausal-app-"))
 #' inherits(app, "shiny.appobj")
 #' @export
 samplecausal_app <- function(export_dir = file.path(tempdir(), "SampleCausal-exports")) {
   .sc_scalar_text(export_dir, "export_dir")
-  export_dir <- normalizePath(export_dir, winslash = "/", mustWork = FALSE)
+  if (!dir.exists(export_dir) &&
+      !dir.create(export_dir, recursive = TRUE, showWarnings = FALSE)) {
+    stop("export_dir could not be created as a directory.", call. = FALSE)
+  }
+  export_dir <- normalizePath(export_dir, winslash = "/", mustWork = TRUE)
   engine <- .sc_engine()
   assets <- system.file("appwww", package = "SampleCausal", mustWork = TRUE)
-  prefix <- "samplecausal-assets-101"
+  prefix <- "samplecausal-assets-102"
   shiny::addResourcePath(prefix, assets)
   template <- paste(readLines(file.path(assets, "index.html"), encoding = "UTF-8", warn = FALSE), collapse = "\n")
   template <- sub('href="style.css"', paste0('href="', prefix, '/style.css"'), template, fixed = TRUE)

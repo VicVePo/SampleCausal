@@ -1,6 +1,6 @@
 Package: SampleCausal
 Title: Sample Size Planning for Selected Causal Inference Methods
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: person("Victor J.", "Vera-Ponce", email = "victor_jvp@hotmail.com", role = c("aut", "cre"))
 Description: Calculates sample sizes, normal-approximation power, precision,
     and minimum detectable effects for selected causal-inference planning

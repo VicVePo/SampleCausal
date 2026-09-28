@@ -1,6 +1,6 @@
 # SampleCausal
 
-Paquete R para planificar el tamaño muestral, la potencia, la precisión y el efecto mínimo detectable con métodos seleccionados de inferencia causal. Incluye funciones utilizables directamente desde R y una interfaz Shiny local. Versión del paquete y del motor: **1.0.1**.
+Paquete R para planificar el tamaño muestral, la potencia, la precisión y el efecto mínimo detectable con métodos seleccionados de inferencia causal. Incluye funciones utilizables directamente desde R y una interfaz Shiny local. Versión del paquete: **1.0.2**; motor matemático conservado: **1.0.1**.
 
 ## Instalar la entrega local
 
@@ -10,13 +10,13 @@ Instalar primero las dependencias de ejecución, si no están disponibles:
 install.packages(c("jsonlite", "shiny"))
 ```
 
-En Windows, seleccionar `SampleCausal_1.0.1.zip`:
+En Windows, seleccionar `SampleCausal_1.0.2.zip`:
 
 ```r
 install.packages(file.choose(), repos = NULL, type = "win.binary")
 ```
 
-Para instalar el código fuente en Windows, Linux o macOS, seleccionar `SampleCausal_1.0.1.tar.gz`:
+Para instalar el código fuente en Windows, Linux o macOS, seleccionar `SampleCausal_1.0.2.tar.gz`:
 
 ```r
 install.packages(file.choose(), repos = NULL, type = "source")
@@ -62,7 +62,7 @@ La aplicación se abre en el navegador del equipo. Para detenerla, interrumpir l
 run_samplecausal(export_dir = file.path(path.expand("~"), "SampleCausal-exports"))
 ```
 
-La instalación del paquete permanece sin modificaciones. `samplecausal_app()` permite obtener el objeto Shiny sin iniciar el servidor.
+`samplecausal_app()` permite obtener el objeto Shiny sin iniciar el servidor. La carpeta de exportación se crea al construir la aplicación y queda registrada con su ruta absoluta: cambiar después el directorio de trabajo de R no cambia el destino. Los destinos predeterminados están fuera de la instalación del paquete.
 
 ## Sensibilidad, exportación y reproducción
 
@@ -75,7 +75,7 @@ recalculado <- causal_replay(archivos$saved_json)
 recalculado$n_analyzable
 ```
 
-La sensibilidad conserva los escenarios rechazados. La reproducción de versiones históricas utiliza el motor correspondiente y mantiene sus textos y fórmulas; no rehabilita recomendaciones retiradas. Los rechazos sin entradas propias se reproducen desde su escenario original, no desde un registro incompleto.
+La sensibilidad conserva los escenarios rechazados. La reproducción de versiones históricas utiliza el motor correspondiente y mantiene sus textos y fórmulas; no rehabilita recomendaciones retiradas. Los rechazos sin entradas propias se reproducen desde su escenario original, no desde un registro incompleto. El campo `software_version` de los resultados identifica el motor matemático 1.0.1; la versión del paquete instalado se consulta con `packageVersion("SampleCausal")` y es 1.0.2. Esta revisión corrige la validación del destino de exportación, sin cambiar los resultados del motor.
 
 ## Métodos y límites
 

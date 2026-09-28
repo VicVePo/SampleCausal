@@ -20,6 +20,6 @@ check <- readLines(file.path(paste0(metadata[1L,"Package"], ".Rcheck"), "00check
 if (!any(grepl("Status: OK", check, fixed = TRUE))) stop("Check did not finish with Status: OK")
 cat("Source archive built and checked: ", file.path(destination, archive), "\n", sep = "")
 # To build a Windows binary in a separate library:
-# R CMD INSTALL --build --library=<existing-empty-directory> SampleCausal_1.0.1.tar.gz
+# R CMD INSTALL --build --library=<existing-empty-directory> SampleCausal_1.0.2.tar.gz
 # To verify installed archives with no attached default packages:
 # Rscript --vanilla --default-packages=NULL tools/verify-installed.R <package-library> <dependency-library> <evidence-directory>
