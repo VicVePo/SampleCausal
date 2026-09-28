@@ -2,7 +2,20 @@
 
 Paquete R para planificar el tamaño muestral, la potencia, la precisión y el efecto mínimo detectable con métodos seleccionados de inferencia causal. Incluye funciones utilizables directamente desde R y una interfaz Shiny local. Versión del paquete: **1.0.2**; motor matemático conservado: **1.0.1**.
 
-## Instalar la entrega local
+## Instalar desde GitHub
+
+```r
+install.packages(c("remotes", "knitr", "markdown"))
+remotes::install_github("VicVePo/SampleCausal", upgrade = "never", build_vignettes = TRUE)
+library(SampleCausal)
+run_samplecausal()
+```
+
+Para reproducir la versión 1.0.2, añadir `ref = "v1.0.2"` a `install_github`. La construcción de la guía requiere `knitr` y `markdown`; si se omite `build_vignettes = TRUE`, se instala el paquete con la ayuda de sus funciones, sin reconstruir esa guía.
+
+Código y seguimiento de cambios: [VicVePo/SampleCausal](https://github.com/VicVePo/SampleCausal). Los archivos de distribución y sus hashes se encuentran en [Releases](https://github.com/VicVePo/SampleCausal/releases).
+
+## Instalar desde un archivo de distribución
 
 Instalar primero las dependencias de ejecución, si no están disponibles:
 
@@ -22,9 +35,7 @@ Para instalar el código fuente en Windows, Linux o macOS, seleccionar `SampleCa
 install.packages(file.choose(), repos = NULL, type = "source")
 ```
 
-El paquete no contiene código C/C++ que deba compilarse. La instalación y las pruebas se verificaron en Windows con R 4.6.1; la comprobación en otros sistemas está preparada en el flujo de GitHub, pero no se declara ejecutada.
-
-El repositorio público todavía no se ha publicado. Cuando exista `VicVePo/SampleCausal`, la ruta prevista será `remotes::install_github("VicVePo/SampleCausal")`; esa orden no se presenta como disponible antes de la publicación. No es necesario publicarlo en CRAN para distribuirlo desde GitHub.
+El paquete no contiene código C/C++ que deba compilarse. La comprobación local se realizó en Windows con R 4.6.1. Los resultados de las verificaciones remotas para Windows, Linux y macOS se registran por revisión en [R-CMD-check](https://github.com/VicVePo/SampleCausal/actions/workflows/R-CMD-check.yaml). El alcance estadístico de la validación se describe más abajo; superar pruebas de software no garantiza calibración en escenarios distintos de los estudiados.
 
 ## Calcular desde R
 

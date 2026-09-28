@@ -5,6 +5,8 @@ title: "SampleCausal: Sample Size Planning for Selected Causal Inference Methods
 version: 1.0.2
 date-released: 2026-09-28
 license: MIT
+repository-code: "https://github.com/VicVePo/SampleCausal"
+url: "https://github.com/VicVePo/SampleCausal"
 authors:
   - family-names: Vera-Ponce
     given-names: Victor J.

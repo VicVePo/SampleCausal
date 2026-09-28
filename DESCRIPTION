@@ -10,6 +10,8 @@ Description: Calculates sample sizes, normal-approximation power, precision,
     Provides a local Shiny interface and artificial examples. The corrected
     M06-E1 variance is explicitly identified as a local mathematical amendment.
 License: MIT + file LICENSE
+URL: https://github.com/VicVePo/SampleCausal
+BugReports: https://github.com/VicVePo/SampleCausal/issues
 Encoding: UTF-8
 Depends: R (>= 4.1.0)
 Imports: jsonlite, shiny, stats
