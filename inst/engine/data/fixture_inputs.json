@@ -1,0 +1,1512 @@
+[
+  {
+    "id": "F01",
+    "inputs": {
+      "r": 0.5,
+      "sd0": 1,
+      "sd1": 1,
+      "D0": 1,
+      "D1": 1,
+      "delta": 0.5,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F01",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F01; valores ilustrativos para verificación."
+        },
+        "sd0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F01; valores ilustrativos para verificación."
+        },
+        "sd1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F01; valores ilustrativos para verificación."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F01; valores ilustrativos para verificación."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F01; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F01; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F02",
+    "inputs": {
+      "r": 0.4,
+      "sd0": 10,
+      "sd1": 12,
+      "D0": 1.4,
+      "D1": 1.8,
+      "loss": 0.1,
+      "delta": 3,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F02",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F02; valores ilustrativos para verificación."
+        },
+        "sd0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F02; valores ilustrativos para verificación."
+        },
+        "sd1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F02; valores ilustrativos para verificación."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F02; valores ilustrativos para verificación."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F02; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F02; valores ilustrativos para verificación."
+        },
+        "loss": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F02; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F03",
+    "inputs": {
+      "r": 0.4,
+      "p0": 0.2,
+      "p1": 0.3,
+      "D0": 1.4,
+      "D1": 1.8,
+      "delta": 0.1,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "binary",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F03",
+      "effect_units": "diferencia absoluta de riesgos",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F03; valores ilustrativos para verificación."
+        },
+        "p0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F03; valores ilustrativos para verificación."
+        },
+        "p1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F03; valores ilustrativos para verificación."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F03; valores ilustrativos para verificación."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F03; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F04",
+    "inputs": {
+      "r": 0.65,
+      "p0": 0.73,
+      "p1": 0.58,
+      "D0": 1.12,
+      "D1": 1.04,
+      "delta": -0.15,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "binary",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "decrease",
+      "scenario_name": "Demostración F04",
+      "effect_units": "diferencia absoluta de riesgos",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F04; valores ilustrativos para verificación."
+        },
+        "p0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F04; valores ilustrativos para verificación."
+        },
+        "p1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F04; valores ilustrativos para verificación."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F04; valores ilustrativos para verificación."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F04; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F05",
+    "inputs": {
+      "r": 0.4,
+      "q0": 0.8,
+      "q1": 1.2,
+      "delta": 0.4,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.adjusted_variance",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "q_definition": "M01_section6_sigma2_times_deff_with_remainder",
+      "pilot_definition": "Fixture de la fase 2; no corresponde a un piloto real.",
+      "scenario_name": "Demostración F05",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F05; valores ilustrativos para verificación."
+        },
+        "q0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F05; valores ilustrativos para verificación."
+        },
+        "q1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F05; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F05; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F06",
+    "inputs": {
+      "r": 0.5,
+      "c": 0.8,
+      "delta": 0.5,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M02.table",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "sd_common": 1,
+      "direction": "increase",
+      "scenario_name": "Demostración F06",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F06; valores ilustrativos para verificación."
+        },
+        "c": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F06; valores ilustrativos para verificación."
+        },
+        "sd_common": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F06; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F06; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F07",
+    "inputs": {
+      "r": 0.5,
+      "c": 0.8,
+      "delta": 0.5,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M02.table",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "sd_common": 1,
+      "direction": "increase",
+      "scenario_name": "Demostración F07",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F07; valores ilustrativos para verificación."
+        },
+        "c": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F07; valores ilustrativos para verificación."
+        },
+        "sd_common": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F07; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F07; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F08",
+    "inputs": {
+      "r": 0.5,
+      "c": 0.8,
+      "delta": 0.5,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M02.table",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATO",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "sd_common": 1,
+      "direction": "increase",
+      "scenario_name": "Demostración F08",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F08; valores ilustrativos para verificación."
+        },
+        "c": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F08; valores ilustrativos para verificación."
+        },
+        "sd_common": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F08; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F08; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F09",
+    "inputs": {
+      "r": 0.5,
+      "c": 0.8,
+      "delta": 0.5,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M02.table",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "MW",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "sd_common": 1,
+      "direction": "increase",
+      "scenario_name": "Demostración F09",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F09; valores ilustrativos para verificación."
+        },
+        "c": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F09; valores ilustrativos para verificación."
+        },
+        "sd_common": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F09; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F09; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F10",
+    "inputs": {
+      "r": 0.5,
+      "c": 0.8,
+      "delta": 0.5,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M02.table",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "EW",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "sd_common": 1,
+      "direction": "increase",
+      "scenario_name": "Demostración F10",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F10; valores ilustrativos para verificación."
+        },
+        "c": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F10; valores ilustrativos para verificación."
+        },
+        "sd_common": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F10; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F10; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F11",
+    "inputs": {
+      "r": 0.7,
+      "c": 0.83,
+      "delta": 0.5,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M02.table",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "sd_common": 1,
+      "direction": "increase",
+      "scenario_name": "Demostración F11",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F11; valores ilustrativos para verificación."
+        },
+        "c": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F11; valores ilustrativos para verificación."
+        },
+        "sd_common": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F11; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F11; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F12",
+    "inputs": {
+      "r": 0.4,
+      "phi": 0.85,
+      "rho2": 0.02,
+      "S": 1,
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M03.normal",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "homogeneous_effect": true,
+      "scenario_name": "Demostración F12",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F12; valores ilustrativos para verificación."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F12; valores ilustrativos para verificación."
+        },
+        "rho2": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F12; valores ilustrativos para verificación."
+        },
+        "S": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F12; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F12; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F13",
+    "inputs": {
+      "r": 0.4,
+      "phi": 0.85,
+      "rho2": 0.02,
+      "S": 1,
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M03.normal",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "homogeneous_effect": true,
+      "scenario_name": "Demostración F13",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F13; valores ilustrativos para verificación."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F13; valores ilustrativos para verificación."
+        },
+        "rho2": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F13; valores ilustrativos para verificación."
+        },
+        "S": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F13; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F13; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F14",
+    "inputs": {
+      "r": 0.4,
+      "phi": 0.85,
+      "rho2": 0.02,
+      "S": 1,
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M03.normal",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATC",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "homogeneous_effect": true,
+      "scenario_name": "Demostración F14",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F14; valores ilustrativos para verificación."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F14; valores ilustrativos para verificación."
+        },
+        "rho2": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F14; valores ilustrativos para verificación."
+        },
+        "S": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F14; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F14; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F15",
+    "inputs": {
+      "r": 0.4,
+      "phi": 0.85,
+      "rho2": 0.02,
+      "S": 1,
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M03.normal",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATO",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "homogeneous_effect": true,
+      "scenario_name": "Demostración F15",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F15; valores ilustrativos para verificación."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F15; valores ilustrativos para verificación."
+        },
+        "rho2": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F15; valores ilustrativos para verificación."
+        },
+        "S": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F15; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F15; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F16",
+    "inputs": {
+      "r": 0.4,
+      "phi": 0.85,
+      "rho2": 0.02,
+      "S": 1,
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M03.normal",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "one_sided",
+      "direction": "increase",
+      "homogeneous_effect": true,
+      "scenario_name": "Demostración F16",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F16; valores ilustrativos para verificación."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F16; valores ilustrativos para verificación."
+        },
+        "rho2": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F16; valores ilustrativos para verificación."
+        },
+        "S": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F16; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F16; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F17",
+    "inputs": {
+      "r": 0.5,
+      "phi": 0.8835729338221293,
+      "rho2": 0.02,
+      "S": 1,
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M03.normal",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "homogeneous_effect": true,
+      "scenario_name": "Demostración F17",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F17; valores ilustrativos para verificación."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F17; valores ilustrativos para verificación."
+        },
+        "rho2": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F17; valores ilustrativos para verificación."
+        },
+        "S": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F17; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F17; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F18",
+    "inputs": {
+      "r": 0.4,
+      "phi": 1,
+      "rho2": 0,
+      "S": 1,
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M03.normal",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATO",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "homogeneous_effect": true,
+      "scenario_name": "Demostración F18",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F18; valores ilustrativos para verificación."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F18; valores ilustrativos para verificación."
+        },
+        "rho2": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F18; valores ilustrativos para verificación."
+        },
+        "S": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F18; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F18; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F19",
+    "inputs": {
+      "n0": 750,
+      "p": 5,
+      "residual_var0": 1,
+      "residual_var1": 1,
+      "delta": 0.3,
+      "alpha": 0.025,
+      "target_power": 0.9,
+      "module_id": "M06.prediction",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT_new_study",
+      "mode": "full_normal_integer",
+      "test": "one_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F19",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "n0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F19; valores ilustrativos para verificación."
+        },
+        "p": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F19; valores ilustrativos para verificación."
+        },
+        "residual_var0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F19; valores ilustrativos para verificación."
+        },
+        "residual_var1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F19; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F19; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F20",
+    "inputs": {
+      "n0": 1000,
+      "p": 5,
+      "residual_var0": 1,
+      "residual_var1": 1,
+      "delta": 0.15,
+      "alpha": 0.025,
+      "target_power": 0.9,
+      "module_id": "M06.prediction",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT_new_study",
+      "mode": "full_normal_integer",
+      "test": "one_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F20",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "n0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F20; valores ilustrativos para verificación."
+        },
+        "p": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F20; valores ilustrativos para verificación."
+        },
+        "residual_var0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F20; valores ilustrativos para verificación."
+        },
+        "residual_var1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F20; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F20; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F21",
+    "inputs": {
+      "n0": 2500,
+      "p": 5,
+      "residual_var0": 1,
+      "residual_var1": 1,
+      "delta": 0.25,
+      "alpha": 0.025,
+      "target_power": 0.9,
+      "module_id": "M06.prediction",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT_new_study",
+      "mode": "full_normal_integer",
+      "test": "one_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F21",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "n0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F21; valores ilustrativos para verificación."
+        },
+        "p": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F21; valores ilustrativos para verificación."
+        },
+        "residual_var0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F21; valores ilustrativos para verificación."
+        },
+        "residual_var1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F21; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F21; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F22",
+    "inputs": {
+      "n0": 200,
+      "p": 0,
+      "residual_var0": 1,
+      "residual_var1": 1,
+      "delta": 0.4,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M06.prediction",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT_new_study",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F22",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "n0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F22; valores ilustrativos para verificación."
+        },
+        "p": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F22; valores ilustrativos para verificación."
+        },
+        "residual_var0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F22; valores ilustrativos para verificación."
+        },
+        "residual_var1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F22; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F22; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F23",
+    "inputs": {
+      "n0": 20,
+      "p": 5,
+      "residual_var0": 1,
+      "residual_var1": 1,
+      "delta": 0.1,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M06.prediction",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT_new_study",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F23",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "n0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F23; valores ilustrativos para verificación."
+        },
+        "p": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F23; valores ilustrativos para verificación."
+        },
+        "residual_var0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F23; valores ilustrativos para verificación."
+        },
+        "residual_var1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F23; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F23; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F24",
+    "inputs": {
+      "n_control": 150,
+      "n_treated_interim": 75,
+      "mean_resampling_match_rate": 0.8,
+      "alpha_ci": 0.05,
+      "module_id": "M05.summary",
+      "calculation": "recruitment_reestimation",
+      "outcome": "outcome_agnostic",
+      "estimand": "externally_justified_matched_target",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "pair_target_justification": "Supuesto de demostración: 150 pares previamente justificados.",
+      "resampling_metadata": "Resumen artificial fijo de fase 2; no se ejecutan remuestreos.",
+      "scenario_name": "Demostración F24",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "n_control": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F24; valores ilustrativos para verificación."
+        },
+        "n_treated_interim": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F24; valores ilustrativos para verificación."
+        },
+        "mean_resampling_match_rate": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F24; valores ilustrativos para verificación."
+        },
+        "alpha_ci": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F24; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F25",
+    "inputs": {
+      "V_stable": 2.5,
+      "effect_scale": "mean_difference",
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M07.scalar",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "marginal_population_effect",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "pilot_definition": "Fixture artificial de verificación.",
+      "scenario_name": "Demostración F25",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "V_stable": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F25; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F25; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F26",
+    "inputs": {
+      "V_bootstrap": [
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0
+      ],
+      "functional": "q70",
+      "quantile_method": "type7",
+      "toy_example": true,
+      "effect_scale": "mean_difference",
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M07.bootstrap_summary",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "marginal_population_effect",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "pilot_definition": "Fixture artificial de verificación.",
+      "n_bootstrap_attempted": 5,
+      "n_bootstrap_failed": 0,
+      "seed": "fixture fija",
+      "scenario_name": "Demostración F26",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "V_bootstrap": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F26; valores ilustrativos para verificación."
+        },
+        "n_bootstrap_attempted": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F26; valores ilustrativos para verificación."
+        },
+        "n_bootstrap_failed": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F26; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F26; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F27",
+    "inputs": {
+      "n0": 500,
+      "gamma": 0.5,
+      "kappa2": 1,
+      "delta": 0.3,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M08.aipw_external",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F27",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "n0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F27; valores ilustrativos para verificación."
+        },
+        "gamma": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F27; valores ilustrativos para verificación."
+        },
+        "kappa2": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F27; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F27; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F28",
+    "inputs": {
+      "n0": 20,
+      "gamma": 0.25,
+      "kappa2": 1,
+      "delta": 0.1,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M08.aipw_external",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F28",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "n0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F28; valores ilustrativos para verificación."
+        },
+        "gamma": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F28; valores ilustrativos para verificación."
+        },
+        "kappa2": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F28; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F28; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F29",
+    "inputs": {
+      "r": 0.5,
+      "phi": 0.8835729338221293,
+      "HR": 0.6,
+      "d1": 0.7,
+      "d0": 0.8,
+      "delta": -0.5108256237659907,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "E01.cox_ate",
+      "calculation": "sample_size",
+      "outcome": "survival",
+      "estimand": "marginal_population_Cox_HR",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "decrease",
+      "scenario_name": "Demostración F29",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F29; valores ilustrativos para verificación."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F29; valores ilustrativos para verificación."
+        },
+        "HR": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F29; valores ilustrativos para verificación."
+        },
+        "d1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F29; valores ilustrativos para verificación."
+        },
+        "d0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F29; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F30",
+    "inputs": {
+      "r": 0.5,
+      "phi": 1,
+      "HR": 0.6,
+      "d1": 0.7,
+      "d0": 0.8,
+      "delta": -0.5108256237659907,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "E01.cox_ate",
+      "calculation": "sample_size",
+      "outcome": "survival",
+      "estimand": "marginal_population_Cox_HR",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "decrease",
+      "scenario_name": "Demostración F30",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F30; valores ilustrativos para verificación."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F30; valores ilustrativos para verificación."
+        },
+        "HR": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F30; valores ilustrativos para verificación."
+        },
+        "d1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F30; valores ilustrativos para verificación."
+        },
+        "d0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F30; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F31",
+    "inputs": {
+      "A": 4,
+      "B": 0,
+      "half_width": 0.2,
+      "confidence": 0.95,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F31",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F31; valores ilustrativos para verificación."
+        },
+        "sd0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F31; valores ilustrativos para verificación."
+        },
+        "sd1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F31; valores ilustrativos para verificación."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F31; valores ilustrativos para verificación."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F31; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F31; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F32",
+    "inputs": {
+      "A": 1.0,
+      "B": 0.005,
+      "half_width": 0.1,
+      "confidence": 0.95,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Demostración F32",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F32; valores ilustrativos para verificación."
+        },
+        "sd0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F32; valores ilustrativos para verificación."
+        },
+        "sd1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F32; valores ilustrativos para verificación."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F32; valores ilustrativos para verificación."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F32; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F32; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F33",
+    "inputs": {
+      "p0": 0.2,
+      "r": 0.5,
+      "D0": 1,
+      "D1": 1,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "direction": "increase",
+      "module_id": "M01.weights",
+      "calculation": "minimum_detectable_effect",
+      "outcome": "binary",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "sample_size": 1000,
+      "scenario_name": "Demostración F33",
+      "effect_units": "diferencia absoluta de riesgos",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F33; valores ilustrativos para verificación."
+        },
+        "p0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F33; valores ilustrativos para verificación."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F33; valores ilustrativos para verificación."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F33; valores ilustrativos para verificación."
+        },
+        "sample_size": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F33; valores ilustrativos para verificación."
+        }
+      }
+    }
+  },
+  {
+    "id": "F34",
+    "inputs": {
+      "V": 4,
+      "delta": 0.560316763464282,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "r": 0.5,
+      "sd0": 1,
+      "sd1": 1,
+      "D0": 1,
+      "D1": 1,
+      "scenario_name": "Demostración F34",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": true,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F34; valores ilustrativos para verificación."
+        },
+        "sd0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F34; valores ilustrativos para verificación."
+        },
+        "sd1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F34; valores ilustrativos para verificación."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F34; valores ilustrativos para verificación."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F34; valores ilustrativos para verificación."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Caso congelado F34; valores ilustrativos para verificación."
+        }
+      }
+    }
+  }
+]

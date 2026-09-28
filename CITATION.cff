@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this software when using SampleCausal."
+type: software
+title: "SampleCausal: Sample Size Planning for Selected Causal Inference Methods"
+version: 1.0.1
+date-released: 2026-09-28
+license: MIT
+authors:
+  - family-names: Vera-Ponce
+    given-names: Victor J.

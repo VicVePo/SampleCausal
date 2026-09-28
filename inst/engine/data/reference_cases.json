@@ -1,0 +1,1144 @@
+{
+  "version": "2.0",
+  "date": "2026-09-26",
+  "status": "phase_2_reference_arithmetic_only",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "tolerances": {
+    "relative_variance": 1e-08,
+    "absolute_power": 1e-10,
+    "integer_n": "exact for identical algorithm"
+  },
+  "cases": [
+    {
+      "id": "F01",
+      "module": "M01.weights.continuous",
+      "inputs": {
+        "r": 0.5,
+        "sd0": 1,
+        "sd1": 1,
+        "D0": 1,
+        "D1": 1,
+        "delta": 0.5,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 4,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 125.58207574958544,
+        "n_quantile": 126,
+        "n_full_normal": 126,
+        "n_recruit_quantile": 126,
+        "n_recruit_full_normal": 126,
+        "power_at_full_normal_n": 0.8013023941055795,
+        "power_at_previous_n": 0.7981761964601345
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F02",
+      "module": "M01.weights.continuous",
+      "inputs": {
+        "r": 0.4,
+        "sd0": 10,
+        "sd1": 12,
+        "D0": 1.4,
+        "D1": 1.8,
+        "loss": 0.1,
+        "delta": 3,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 881.3333333333333,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 768.6088154673702,
+        "n_quantile": 769,
+        "n_full_normal": 769,
+        "n_recruit_quantile": 855,
+        "n_recruit_full_normal": 855,
+        "power_at_full_normal_n": 0.8002004666668627,
+        "power_at_previous_n": 0.7996901222844385
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F03",
+      "module": "M01.weights.binary",
+      "inputs": {
+        "r": 0.4,
+        "p0": 0.2,
+        "p1": 0.3,
+        "D0": 1.4,
+        "D1": 1.8,
+        "delta": 0.1,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 1.3183333333333334,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 1034.7439783116884,
+        "n_quantile": 1035,
+        "n_full_normal": 1035,
+        "n_recruit_quantile": 1035,
+        "n_recruit_full_normal": 1035,
+        "power_at_full_normal_n": 0.8000979711349853,
+        "power_at_previous_n": 0.7997188269062673
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F04",
+      "module": "M01.weights.binary",
+      "inputs": {
+        "r": 0.65,
+        "p0": 0.73,
+        "p1": 0.58,
+        "D0": 1.12,
+        "D1": 1.04,
+        "delta": -0.15,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 1.02048,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 355.98332405815825,
+        "n_quantile": 356,
+        "n_full_normal": 356,
+        "n_recruit_quantile": 356,
+        "n_recruit_full_normal": 356,
+        "power_at_full_normal_n": 0.8000193305581781,
+        "power_at_previous_n": 0.7989151868023485
+      },
+      "evidence_type": "published_example_comparison",
+      "external_reference": {
+        "source": "M01",
+        "location": "Table 2, scenario 1b",
+        "published_n": 356
+      }
+    },
+    {
+      "id": "F05",
+      "module": "M01.adjusted_variance.continuous",
+      "inputs": {
+        "r": 0.4,
+        "q0": 0.8,
+        "q1": 1.2,
+        "delta": 0.4,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 4.333333333333333,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 212.57382613862114,
+        "n_quantile": 213,
+        "n_full_normal": 213,
+        "n_recruit_quantile": 213,
+        "n_recruit_full_normal": 213,
+        "power_at_full_normal_n": 0.8007858554841263,
+        "power_at_previous_n": 0.7989399493859728
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F06",
+      "module": "M02.table.ATE",
+      "inputs": {
+        "r": 0.5,
+        "c": 0.8,
+        "sd": 1,
+        "delta": 0.5,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 9.221100228784127,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 289.501226856422,
+        "n_quantile": 290,
+        "n_full_normal": 290,
+        "n_recruit_quantile": 290,
+        "n_recruit_full_normal": 290,
+        "power_at_full_normal_n": 0.8006756283164278,
+        "power_at_previous_n": 0.799321005077828,
+        "vif": 2.305275057196032
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F07",
+      "module": "M02.table.ATT",
+      "inputs": {
+        "r": 0.5,
+        "c": 0.8,
+        "sd": 1,
+        "delta": 0.5,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 11.066188307784392,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 347.4287245818391,
+        "n_quantile": 348,
+        "n_full_normal": 348,
+        "n_recruit_quantile": 348,
+        "n_recruit_full_normal": 348,
+        "power_at_full_normal_n": 0.8006449010976017,
+        "power_at_previous_n": 0.7995165340263489,
+        "vif": 2.766547076946098
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F08",
+      "module": "M02.table.ATO",
+      "inputs": {
+        "r": 0.5,
+        "c": 0.8,
+        "sd": 1,
+        "delta": 0.5,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 5.412409437677973,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 169.9254029975616,
+        "n_quantile": 170,
+        "n_full_normal": 170,
+        "n_recruit_quantile": 170,
+        "n_recruit_full_normal": 170,
+        "power_at_full_normal_n": 0.8001730556389235,
+        "power_at_previous_n": 0.7978554878544545,
+        "vif": 1.3531023594194933
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F09",
+      "module": "M02.table.MW",
+      "inputs": {
+        "r": 0.5,
+        "c": 0.8,
+        "sd": 1,
+        "delta": 0.5,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 5.583938552102528,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 175.31064855779255,
+        "n_quantile": 176,
+        "n_full_normal": 176,
+        "n_recruit_quantile": 176,
+        "n_recruit_full_normal": 176,
+        "power_at_full_normal_n": 0.8015379260976907,
+        "power_at_previous_n": 0.7993050195720599,
+        "vif": 1.395984638025632
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F10",
+      "module": "M02.table.EW",
+      "inputs": {
+        "r": 0.5,
+        "c": 0.8,
+        "sd": 1,
+        "delta": 0.5,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 5.51733172969172,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 173.2194928034342,
+        "n_quantile": 174,
+        "n_full_normal": 174,
+        "n_recruit_quantile": 174,
+        "n_recruit_full_normal": 174,
+        "power_at_full_normal_n": 0.8017613253676709,
+        "power_at_previous_n": 0.7995035089231834,
+        "vif": 1.37933293242293
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F11",
+      "module": "M02.table.ATE",
+      "inputs": {
+        "r": 0.7,
+        "c": 0.83,
+        "sd": 1,
+        "delta": 0.5,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 17.825227839969973,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 559.6322782131821,
+        "n_quantile": 560,
+        "n_full_normal": 560,
+        "n_recruit_quantile": 560,
+        "n_recruit_full_normal": 560,
+        "power_at_full_normal_n": 0.8002584992506337,
+        "power_at_previous_n": 0.799557471671091,
+        "vif": 3.743297846393694
+      },
+      "evidence_type": "published_example_comparison",
+      "external_reference": {
+        "source": "M02",
+        "location": "worked example; compare VIF only, effect here differs",
+        "published_vif": 3.75,
+        "expected_vif_rounded_coefficients": 3.743297846393694
+      }
+    },
+    {
+      "id": "F12",
+      "module": "M03.normal.ATE",
+      "inputs": {
+        "r": 0.4,
+        "phi": 0.85,
+        "rho2": 0.02,
+        "S": 1,
+        "delta": 0.2,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 8.180073349609977,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 1605.1102984810705,
+        "n_quantile": 1606,
+        "n_full_normal": 1606,
+        "n_recruit_quantile": 1606,
+        "n_recruit_full_normal": 1606,
+        "power_at_full_normal_n": 0.8002182320791271,
+        "power_at_previous_n": 0.7999740107885647,
+        "moments": {
+          "a": 1.2588711321576072,
+          "b": 1.8883066982364105,
+          "mu": -0.5649917949847656,
+          "sigma2": 1.8790312705561094,
+          "H": 1.0,
+          "center": -0.5649917949847656
+        }
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F13",
+      "module": "M03.normal.ATT",
+      "inputs": {
+        "r": 0.4,
+        "phi": 0.85,
+        "rho2": 0.02,
+        "S": 1,
+        "delta": 0.2,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 9.321641436030635,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 1829.1110639532399,
+        "n_quantile": 1830,
+        "n_full_normal": 1830,
+        "n_recruit_quantile": 1830,
+        "n_recruit_full_normal": 1830,
+        "power_at_full_normal_n": 0.8001914709610611,
+        "power_at_previous_n": 0.7999771472060737,
+        "moments": {
+          "a": 1.2588711321576072,
+          "b": 1.8883066982364105,
+          "mu": -0.5649917949847656,
+          "sigma2": 1.8790312705561094,
+          "H": 0.3972506782909554,
+          "center": 0.2743681290640268
+        }
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F14",
+      "module": "M03.normal.ATC",
+      "inputs": {
+        "r": 0.4,
+        "phi": 0.85,
+        "rho2": 0.02,
+        "S": 1,
+        "delta": 0.2,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 12.623403151216824,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 2476.989329302604,
+        "n_quantile": 2477,
+        "n_full_normal": 2477,
+        "n_recruit_quantile": 2477,
+        "n_recruit_full_normal": 2477,
+        "power_at_full_normal_n": 0.8000026499623376,
+        "power_at_previous_n": 0.7998442754395796,
+        "moments": {
+          "a": 1.2588711321576072,
+          "b": 1.8883066982364105,
+          "mu": -0.5649917949847656,
+          "sigma2": 1.8790312705561094,
+          "H": 0.6027493217090447,
+          "center": -1.1181841207980856
+        }
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F15",
+      "module": "M03.normal.ATO",
+      "inputs": {
+        "r": 0.4,
+        "phi": 0.85,
+        "rho2": 0.02,
+        "S": 1,
+        "delta": 0.2,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 5.587019163300697,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 1096.296037156271,
+        "n_quantile": 1097,
+        "n_full_normal": 1097,
+        "n_recruit_quantile": 1097,
+        "n_recruit_full_normal": 1097,
+        "power_at_full_normal_n": 0.8002526431763796,
+        "power_at_previous_n": 0.7998950395209518,
+        "moments": {
+          "a": 1.2588711321576072,
+          "b": 1.8883066982364105,
+          "mu": -0.5649917949847656,
+          "sigma2": 1.8790312705561094,
+          "H": 0.17745117092167673,
+          "center": -0.3210643551026396
+        }
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F16",
+      "module": "M03.normal.ATE",
+      "inputs": {
+        "r": 0.4,
+        "phi": 0.85,
+        "rho2": 0.02,
+        "S": 1,
+        "delta": 0.2,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "one"
+      },
+      "expected": {
+        "A": 8.180073349609977,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 1264.3442911520835,
+        "n_quantile": 1265,
+        "n_full_normal": 1265,
+        "n_recruit_quantile": 1265,
+        "n_recruit_full_normal": 1265,
+        "power_at_full_normal_n": 0.8001804365822689,
+        "power_at_previous_n": 0.7999052007312035
+      },
+      "evidence_type": "published_example_comparison",
+      "external_reference": {
+        "source": "author PSpower web calculator",
+        "published_n": 1265,
+        "location": "continuous ATE example"
+      }
+    },
+    {
+      "id": "F17",
+      "module": "M03.normal.ATE",
+      "inputs": {
+        "r": 0.5,
+        "phi": 0.8835729338221293,
+        "rho2": 0.02,
+        "S": 1,
+        "delta": 0.2,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 5.910055125077892,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 1159.6827975027459,
+        "n_quantile": 1160,
+        "n_full_normal": 1160,
+        "n_recruit_quantile": 1160,
+        "n_recruit_full_normal": 1160,
+        "power_at_full_normal_n": 0.8001082021133473,
+        "power_at_previous_n": 0.7997699495045839,
+        "moments": {
+          "a": 2.0000000000004694,
+          "b": 2.0000000000004694,
+          "mu": 0.0,
+          "sigma2": 1.2898681336960738,
+          "H": 1.0,
+          "center": 0.0
+        }
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F18",
+      "module": "M03.normal.ATO",
+      "inputs": {
+        "r": 0.4,
+        "phi": 1,
+        "rho2": 0,
+        "S": 1,
+        "delta": 0.2,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 4.166666666666667,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 817.5916389946968,
+        "n_quantile": 818,
+        "n_full_normal": 818,
+        "n_recruit_quantile": 818,
+        "n_recruit_full_normal": 818,
+        "power_at_full_normal_n": 0.8001967508550141,
+        "power_at_previous_n": 0.7997170055304232
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F19",
+      "module": "M06.prediction",
+      "inputs": {
+        "n0": 750,
+        "p": 5,
+        "residual_var0": 1,
+        "residual_var1": 1,
+        "delta": 0.3,
+        "alpha": 0.025,
+        "target_power": 0.9,
+        "side": "one"
+      },
+      "expected": {
+        "A": 1.006720430107527,
+        "B": 0.0013422939068100357,
+        "power_limit": 0.9999999997643974,
+        "status": "ok",
+        "n_quantile_raw": 139.37551947101295,
+        "n_quantile": 140,
+        "n_full_normal": 140,
+        "n_recruit_quantile": 140,
+        "n_recruit_full_normal": 140,
+        "power_at_full_normal_n": 0.9010687654918582,
+        "power_at_previous_n": 0.8993515615075127
+      },
+      "evidence_type": "published_example_comparison",
+      "external_reference": {
+        "source": "M06",
+        "location": "Table 2b",
+        "published_n": 140
+      }
+    },
+    {
+      "id": "F20",
+      "module": "M06.prediction",
+      "inputs": {
+        "n0": 1000,
+        "p": 5,
+        "residual_var0": 1,
+        "residual_var1": 1,
+        "delta": 0.15,
+        "alpha": 0.025,
+        "target_power": 0.9,
+        "side": "one"
+      },
+      "expected": {
+        "A": 1.0050301810865192,
+        "B": 0.0010050301810865191,
+        "power_limit": 0.9972106422355991,
+        "status": "ok",
+        "n_quantile_raw": 884.4658765928779,
+        "n_quantile": 885,
+        "n_full_normal": 885,
+        "n_recruit_quantile": 885,
+        "n_recruit_full_normal": 885,
+        "power_at_full_normal_n": 0.9000910879660756,
+        "power_at_previous_n": 0.8999204470157591
+      },
+      "evidence_type": "published_example_comparison",
+      "external_reference": {
+        "source": "M06",
+        "location": "Table 2b",
+        "published_n": 885
+      }
+    },
+    {
+      "id": "F21",
+      "module": "M06.prediction",
+      "inputs": {
+        "n0": 2500,
+        "p": 5,
+        "residual_var0": 1,
+        "residual_var1": 1,
+        "delta": 0.25,
+        "alpha": 0.025,
+        "target_power": 0.9,
+        "side": "one"
+      },
+      "expected": {
+        "A": 1.0020048115477145,
+        "B": 0.00040080192461908583,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 180.62687439884695,
+        "n_quantile": 181,
+        "n_full_normal": 181,
+        "n_recruit_quantile": 181,
+        "n_recruit_full_normal": 181,
+        "power_at_full_normal_n": 0.9005465491033328,
+        "power_at_previous_n": 0.8990752877304939
+      },
+      "evidence_type": "published_example_comparison",
+      "external_reference": {
+        "source": "M06",
+        "location": "Table 2b",
+        "published_n": 181
+      }
+    },
+    {
+      "id": "F22",
+      "module": "M06.prediction",
+      "inputs": {
+        "n0": 200,
+        "p": 0,
+        "residual_var0": 1,
+        "residual_var1": 1,
+        "delta": 0.4,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 1.0,
+        "B": 0.005,
+        "power_limit": 0.9998908716858957,
+        "status": "ok",
+        "n_quantile_raw": 64.99805928681668,
+        "n_quantile": 65,
+        "n_full_normal": 65,
+        "n_recruit_quantile": 65,
+        "n_recruit_full_normal": 65,
+        "power_at_full_normal_n": 0.800009797510104,
+        "power_at_previous_n": 0.7953942969253699
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F23",
+      "module": "M06.prediction",
+      "inputs": {
+        "n0": 20,
+        "p": 5,
+        "residual_var0": 1,
+        "residual_var1": 1,
+        "delta": 0.1,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 1.3571428571428572,
+        "B": 0.06785714285714287,
+        "power_limit": 0.06704683449640772,
+        "status": "unattainable",
+        "n_quantile": null,
+        "n_full_normal": null
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F24",
+      "module": "M05.summary",
+      "inputs": {
+        "n_control": 150,
+        "n_treated_interim": 75,
+        "mean_resampling_match_rate": 0.8,
+        "alpha_ci": 0.05
+      },
+      "expected": {
+        "lower_match_rate": 0.7462793054987021,
+        "n_treated_final": 201,
+        "n_additional": 126
+      },
+      "evidence_type": "independent_arithmetic_not_matching_algorithm"
+    },
+    {
+      "id": "F25",
+      "module": "M07.scalar",
+      "inputs": {
+        "V_stable": 2.5,
+        "effect_scale": "mean_difference",
+        "delta": 0.2,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 2.5,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 490.55498339681805,
+        "n_quantile": 491,
+        "n_full_normal": 491,
+        "n_recruit_quantile": 491,
+        "n_recruit_full_normal": 491,
+        "power_at_full_normal_n": 0.8003564471489489,
+        "power_at_previous_n": 0.7995568714356515
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F26",
+      "module": "M07.bootstrap_summary",
+      "inputs": {
+        "V_bootstrap": [
+          2.0,
+          3.0,
+          4.0,
+          5.0,
+          6.0
+        ],
+        "functional": "q70",
+        "quantile_method": "type7",
+        "toy_example": true,
+        "effect_scale": "mean_difference",
+        "delta": 0.2,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 4.8,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 941.8655681218906,
+        "n_quantile": 942,
+        "n_full_normal": 942,
+        "n_recruit_quantile": 942,
+        "n_recruit_full_normal": 942,
+        "power_at_full_normal_n": 0.8000569268798245,
+        "power_at_previous_n": 0.7996402882803907,
+        "V_mean": 4.0,
+        "V_q70": 4.8
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F27",
+      "module": "M08.aipw_external",
+      "inputs": {
+        "n0": 500,
+        "gamma": 0.5,
+        "kappa2": 1,
+        "delta": 0.3,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 1,
+        "B": 0.004,
+        "power_limit": 0.9973108131993743,
+        "status": "ok",
+        "n_quantile_raw": 133.9296857857099,
+        "n_quantile": 134,
+        "n_full_normal": 134,
+        "n_recruit_quantile": 134,
+        "n_recruit_full_normal": 134,
+        "power_at_full_normal_n": 0.8001349639800308,
+        "power_at_previous_n": 0.7982172779852977
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F28",
+      "module": "M08.aipw_external",
+      "inputs": {
+        "n0": 20,
+        "gamma": 0.25,
+        "kappa2": 1,
+        "delta": 0.1,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 1,
+        "B": 0.2,
+        "power_limit": 0.05574724994196962,
+        "status": "unattainable",
+        "n_quantile": null,
+        "n_full_normal": null
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F29",
+      "module": "E01.cox_ate",
+      "inputs": {
+        "r": 0.5,
+        "phi": 0.8835729338221293,
+        "HR": 0.6,
+        "d1": 0.7,
+        "d0": 0.8,
+        "delta": -0.5108256237659907,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 9.367703703702235,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 281.77046737766085,
+        "n_quantile": 282,
+        "n_full_normal": 282,
+        "n_recruit_quantile": 282,
+        "n_recruit_full_normal": 282,
+        "power_at_full_normal_n": 0.8003202006251426,
+        "power_at_previous_n": 0.7989261771729473
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F30",
+      "module": "E01.cox_ate",
+      "inputs": {
+        "r": 0.5,
+        "phi": 1,
+        "HR": 0.6,
+        "d1": 0.7,
+        "d0": 0.8,
+        "delta": -0.5108256237659907,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 6.245135802469134,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 187.8469782518033,
+        "n_quantile": 188,
+        "n_full_normal": 188,
+        "n_recruit_quantile": 188,
+        "n_recruit_full_normal": 188,
+        "power_at_full_normal_n": 0.8003202006250814,
+        "power_at_previous_n": 0.7982260480481667
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F31",
+      "module": "core.precision",
+      "inputs": {
+        "A": 4,
+        "B": 0,
+        "half_width": 0.2,
+        "confidence": 0.95
+      },
+      "expected": {
+        "n": 385,
+        "half_width_at_n": 0.1997780280079473
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F32",
+      "module": "core.precision.external",
+      "inputs": {
+        "A": 1.0,
+        "B": 0.005,
+        "half_width": 0.1,
+        "confidence": 0.95
+      },
+      "expected": {
+        "status": "unattainable",
+        "half_width_limit": 0.13859038243496782
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F33",
+      "module": "M01.binary.mde",
+      "inputs": {
+        "N": 1000,
+        "p0": 0.2,
+        "r": 0.5,
+        "D0": 1,
+        "D1": 1,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "direction": "increase"
+      },
+      "expected": {
+        "p1": 0.27511442316819623,
+        "risk_difference": 0.07511442316819622,
+        "power": 0.8000000000000005
+      },
+      "evidence_type": "independent_arithmetic"
+    },
+    {
+      "id": "F34",
+      "module": "core.rounding_regression",
+      "inputs": {
+        "V": 4,
+        "delta": 0.560316763464282,
+        "alpha": 0.05,
+        "target_power": 0.8,
+        "side": "two"
+      },
+      "expected": {
+        "A": 4,
+        "B": 0,
+        "power_limit": 1.0,
+        "status": "ok",
+        "n_quantile_raw": 100.00009999999999,
+        "n_quantile": 101,
+        "n_full_normal": 100,
+        "n_recruit_quantile": 101,
+        "n_recruit_full_normal": 100,
+        "power_at_full_normal_n": 0.8000005684003693,
+        "power_at_previous_n": 0.7960459006261896
+      },
+      "evidence_type": "independent_arithmetic"
+    }
+  ],
+  "checks": [
+    {
+      "id": "C_WATE_ATE",
+      "comparison": "adaptive vs 320-point Gaussian quadrature",
+      "relative_error": 4.343131811855811e-15,
+      "passed": true
+    },
+    {
+      "id": "C_WATE_ATT",
+      "comparison": "adaptive vs 320-point Gaussian quadrature",
+      "relative_error": 4.0018159766602145e-15,
+      "passed": true
+    },
+    {
+      "id": "C_WATE_ATC",
+      "comparison": "adaptive vs 320-point Gaussian quadrature",
+      "relative_error": 5.488053887428271e-15,
+      "passed": true
+    },
+    {
+      "id": "C_WATE_ATO",
+      "comparison": "adaptive vs 320-point Gaussian quadrature",
+      "relative_error": 2.7025203768912667e-15,
+      "passed": true
+    },
+    {
+      "id": "C_ATE_closed",
+      "relative_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "C_beta_special",
+      "passed": true
+    },
+    {
+      "id": "C_ATT_ATC_symmetry",
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "C_no_false_bracket_floor",
+      "phi": 0.5,
+      "a": 0.2945394766580321,
+      "b": 0.2945394766580321,
+      "passed": true
+    },
+    {
+      "id": "C_published_F19",
+      "expected": 140,
+      "observed": 140,
+      "passed": true
+    },
+    {
+      "id": "C_published_F20",
+      "expected": 885,
+      "observed": 885,
+      "passed": true
+    },
+    {
+      "id": "C_published_F21",
+      "expected": 181,
+      "observed": 181,
+      "passed": true
+    },
+    {
+      "id": "C_cox_a2_ratio",
+      "ratio": 1.4999999999997653,
+      "passed": true
+    },
+    {
+      "id": "C_cox_divergence",
+      "passed": true
+    },
+    {
+      "id": "C_null_two_tails",
+      "power": 0.049999999999999954,
+      "passed": true
+    },
+    {
+      "id": "C_M01_published_F04",
+      "passed": true
+    },
+    {
+      "id": "C_M03_author_example_F16",
+      "passed": true
+    },
+    {
+      "id": "C_vif_lower_bound_counterexample",
+      "passed": true
+    },
+    {
+      "id": "C_two_normal_inversions_differ",
+      "passed": true
+    },
+    {
+      "id": "C_precision_unattainable",
+      "passed": true
+    },
+    {
+      "id": "C_binary_mde",
+      "passed": true
+    }
+  ],
+  "diagnostics": [
+    {
+      "id": "D01",
+      "input": {
+        "r": 0.5,
+        "c": 0.6,
+        "scheme": "ATE"
+      },
+      "table_vif": 0.8983459858250235,
+      "decision": "reject_result_below_one; do not clamp"
+    },
+    {
+      "id": "D02",
+      "input_r": 0.4,
+      "input_phi": 0.85,
+      "M03_normal_mean_propensity": 0.39725067829095534,
+      "note": "Beta moment matching is an approximation; do not claim exact preservation of every PS moment."
+    }
+  ],
+  "source_sha256": [
+    {
+      "name": "utils_internal.R",
+      "sha256": "32d549cbecb84b631b23b2f4396afc0cc49cdc9920282c3985af242786ebf3e3"
+    },
+    {
+      "name": "power_ps.R",
+      "sha256": "a1de7466d05e451e1b49c04fe9053b1a94645ea14e825cb674655447d543dcce"
+    },
+    {
+      "name": "power_cox.R",
+      "sha256": "47345f0215448381d1e7a57db15e140bef5ff5d715852a42d00e2747ad29307c"
+    },
+    {
+      "name": "PMC9293235.xml",
+      "sha256": "7afeb252967094f6d95bfd5031fe3c2e69854caca83ba5ce3eaaf3611920bd1e"
+    },
+    {
+      "name": "liu_v5.html",
+      "sha256": "0a94707c3140918368f93e1ca90c3cff01949705f4d77d5dbe8fef9c69a839c4"
+    },
+    {
+      "name": "M07_v1.html",
+      "sha256": "4a10e32d59a1ae252e314b46d1f133c10c8c2a9a75fa733b5186b4b19209861b"
+    },
+    {
+      "name": "E01_v2.html",
+      "sha256": "8ea414e551d7651dfe6a2df971ffb079547e674fbce8e8e2d675cb70b12d5a4c"
+    }
+  ]
+}

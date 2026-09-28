@@ -1,0 +1,296 @@
+{
+  "T1": {
+    "r": 0.4,
+    "p0": 0.2,
+    "p1": 0.3,
+    "D0": 1.4,
+    "D1": 1.8,
+    "delta": 0.1,
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "module_id": "M01.weights",
+    "calculation": "sample_size",
+    "outcome": "binary",
+    "estimand": "ATE",
+    "mode": "full_normal_integer",
+    "test": "two_sided",
+    "direction": "increase",
+    "scenario_name": "Fase 5 T1 — datos artificiales",
+    "effect_units": "diferencia absoluta de riesgos",
+    "assumptions_confirmed": true,
+    "demo": false,
+    "provenance": {
+      "r": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      },
+      "p0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      },
+      "p1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      },
+      "D0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      },
+      "D1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      }
+    },
+    "loss": 0
+  },
+  "T2": {
+    "r": 0.4,
+    "phi": 0.85,
+    "rho2": 0.02,
+    "S": 1,
+    "delta": 0.2,
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "module_id": "M03.normal",
+    "calculation": "sample_size",
+    "outcome": "continuous",
+    "estimand": "ATO",
+    "mode": "full_normal_integer",
+    "test": "two_sided",
+    "direction": "increase",
+    "homogeneous_effect": true,
+    "scenario_name": "Fase 5 T2 — datos artificiales",
+    "effect_units": "unidades del desenlace",
+    "assumptions_confirmed": true,
+    "demo": false,
+    "provenance": {
+      "r": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      },
+      "phi": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      },
+      "rho2": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      },
+      "S": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      },
+      "delta": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      }
+    },
+    "loss": 0
+  },
+  "T3": {
+    "n0": 750,
+    "p": 5,
+    "residual_var0": 1,
+    "residual_var1": 1,
+    "delta": 0.3,
+    "alpha": 0.025,
+    "target_power": 0.9,
+    "module_id": "M06.prediction",
+    "calculation": "sample_size",
+    "outcome": "continuous",
+    "estimand": "ATT_new_study",
+    "mode": "full_normal_integer",
+    "test": "one_sided",
+    "direction": "increase",
+    "scenario_name": "Fase 5 T3 — datos artificiales",
+    "effect_units": "unidades del desenlace",
+    "assumptions_confirmed": true,
+    "demo": false,
+    "provenance": {
+      "n0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      },
+      "p": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      },
+      "residual_var0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      },
+      "residual_var1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      },
+      "delta": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      }
+    },
+    "loss": 0
+  },
+  "T4": {
+    "n0": 750,
+    "p": 5,
+    "residual_var0": 1,
+    "residual_var1": 1,
+    "delta": 0.03,
+    "alpha": 0.025,
+    "target_power": 0.9,
+    "module_id": "M06.prediction",
+    "calculation": "sample_size",
+    "outcome": "continuous",
+    "estimand": "ATT_new_study",
+    "mode": "full_normal_integer",
+    "test": "one_sided",
+    "direction": "increase",
+    "scenario_name": "Fase 5 T4 — datos artificiales",
+    "effect_units": "unidades del desenlace",
+    "assumptions_confirmed": true,
+    "demo": false,
+    "provenance": {
+      "n0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T4."
+      },
+      "p": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T4."
+      },
+      "residual_var0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T4."
+      },
+      "residual_var1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T4."
+      },
+      "delta": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T4."
+      }
+    },
+    "loss": 0
+  },
+  "T5": {
+    "n_control": 150,
+    "n_treated_interim": 75,
+    "mean_resampling_match_rate": 0.8,
+    "alpha_ci": 0.05,
+    "module_id": "M05.summary",
+    "calculation": "recruitment_reestimation",
+    "outcome": "outcome_agnostic",
+    "estimand": "externally_justified_matched_target",
+    "mode": "full_normal_integer",
+    "test": "two_sided",
+    "direction": "increase",
+    "pair_target_justification": "Meta artificial de 150 pares, justificada fuera de esta reestimación.",
+    "resampling_metadata": "Resumen artificial: media de tasa 0.8; no se ejecuta remuestreo en la calculadora.",
+    "scenario_name": "Fase 5 T5 — datos artificiales",
+    "effect_units": "unidades del desenlace",
+    "assumptions_confirmed": true,
+    "demo": false,
+    "provenance": {
+      "n_control": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+      },
+      "n_treated_interim": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+      },
+      "mean_resampling_match_rate": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+      },
+      "alpha_ci": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+      }
+    },
+    "loss": 0
+  },
+  "T6A": {
+    "r": 0.5,
+    "c": 0.8,
+    "delta": 0.5,
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "module_id": "M02.table",
+    "calculation": "sample_size",
+    "outcome": "continuous",
+    "estimand": "ATT",
+    "mode": "full_normal_integer",
+    "test": "two_sided",
+    "sd_common": 1,
+    "direction": "increase",
+    "scenario_name": "Fase 5 T6A — datos artificiales",
+    "effect_units": "unidades del desenlace",
+    "assumptions_confirmed": true,
+    "demo": false,
+    "provenance": {
+      "r": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6A."
+      },
+      "c": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6A."
+      },
+      "sd_common": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6A."
+      },
+      "delta": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6A."
+      }
+    },
+    "loss": 0
+  },
+  "T6B": {
+    "r": 0.65,
+    "p0": 0.73,
+    "p1": 0.58,
+    "D0": 1.12,
+    "D1": 1.04,
+    "delta": -0.15,
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "module_id": "M01.weights",
+    "calculation": "sample_size",
+    "outcome": "binary",
+    "estimand": "ATE",
+    "mode": "full_normal_integer",
+    "test": "two_sided",
+    "direction": "decrease",
+    "scenario_name": "Fase 5 T6B — datos artificiales",
+    "effect_units": "diferencia absoluta de riesgos",
+    "assumptions_confirmed": true,
+    "demo": false,
+    "provenance": {
+      "r": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      },
+      "p0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      },
+      "p1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      },
+      "D0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      },
+      "D1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      }
+    },
+    "loss": 0
+  }
+}

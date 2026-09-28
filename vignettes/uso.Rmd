@@ -1,0 +1,130 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{Uso de SampleCausal con escenarios ficticios}
+%\VignetteEncoding{UTF-8}
+-->
+
+# Uso de SampleCausal con escenarios ficticios
+
+Esta guía se ejecuta al construir el paquete. Los valores son supuestos artificiales para comprobar el procedimiento, no observaciones de un estudio real.
+
+```{r setup, include=FALSE}
+library(SampleCausal)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## Primer cálculo
+
+```{r size}
+escenario <- causal_example("T1")
+resultado <- causal_calculate(escenario)
+resultado[c("status", "n_analyzable", "power_recalculated", "n_meaning")]
+```
+
+El tamaño corresponde al total analizable. La proporción tratada define cantidades esperadas por grupo, no cuotas garantizadas. Los parámetros y sus fuentes permanecen dentro del resultado.
+
+```{r trace}
+resultado$inputs[c("r", "p0", "p1", "D0", "D1")]
+resultado$source
+```
+
+## Métodos y entradas
+
+```{r methods}
+causal_methods()[, c("module_id", "estimands", "n_meaning")]
+```
+
+| Componente | Entradas principales |
+|---|---|
+| Identificación | `module_id`, `calculation`, `outcome`, `estimand`, `scenario_name` |
+| Trazabilidad | `effect_units`, `assumptions_confirmed`, `provenance` |
+| Tamaño/potencia | `alpha`, `test`, `direction`, `target_power` o `sample_size`; efecto definido por el método |
+| Precisión | `confidence`, `half_width` |
+| M01 binario | `r`, `p0`, `p1`, `D0`, `D1` |
+| M01 continuo | `r`, `sd0`, `sd1`, `D0`, `D1`, `delta` |
+| M01 ajustado | `r`, `q0`, `q1`, `q_definition = "M01_section6_sigma2_times_deff_with_remainder"`, `pilot_definition`, `delta`; consultar la definición exacta del método |
+| M02 | `r`, `c`, `sd_common`, `delta`; cuadrícula y estimandos habilitados |
+| M03 | `r`, `phi`, `rho2`, `S`, `delta`, `homogeneous_effect` |
+| M06 | `n0`, `p`, `residual_var0`, `residual_var1`, `delta` |
+| M05 | `n_control`, `n_treated_interim`, `mean_resampling_match_rate`, `alpha_ci`, justificación del objetivo y del remuestreo |
+
+Las definiciones completas se consultan en `causal_methods(details = TRUE)`. Cada parámetro que requiere procedencia tiene una entrada como la siguiente:
+
+```{r provenance}
+escenario$provenance$p0
+```
+
+Al cambiar un valor, actualizar `detail`, la fuente y el nombre del escenario. La confirmación de supuestos corresponde al escenario especificado. El paquete no infiere intercambiabilidad, positividad ni adecuación del análisis por el solo hecho de recibir valores válidos.
+
+## Potencia para una muestra disponible
+
+```{r power}
+p <- causal_example("T1")
+p$calculation <- "power"
+p$sample_size <- 1200
+p$provenance$sample_size <- list(kind = "explicit_assumption", detail = "Escenario ficticio con 1200 observaciones.")
+causal_calculate(p)[c("status", "n_analyzable", "power_recalculated")]
+```
+
+## Precisión y efecto mínimo detectable
+
+```{r precision}
+p <- causal_example("F01")
+p$calculation <- "precision"
+p$confidence <- 0.95
+p$half_width <- 0.25
+causal_calculate(p)[c("status", "n_analyzable")]
+```
+
+```{r detectable}
+p <- causal_example("F01")
+p$calculation <- "minimum_detectable_effect"
+p$sample_size <- 300
+p$provenance$sample_size <- list(kind = "explicit_assumption", detail = "Ejemplo ficticio con 300 observaciones.")
+causal_calculate(p)[c("status", "minimum_detectable_effect", "power_recalculated")]
+```
+
+## Controles externos y objetivo inalcanzable
+
+```{r external}
+causal_calculate(causal_example("T3"))[c("status", "n_analyzable", "n_external_fixed")]
+causal_calculate(causal_example("T4"))
+```
+
+T3 requiere 140 tratados nuevos además de los 750 controles externos fijos. T4 no alcanza la potencia objetivo dentro de la aproximación elegida. No devuelve una muestra finita válida ni demuestra imposibilidad para cualquier otro método.
+
+M06–E1 emplea una enmienda local de la varianza con `n0-p-2`; `p` excluye el intercepto. Exige al menos 100 grados de libertad residuales en cada grupo y mantiene supuestos gaussianos, modelo lineal correcto e igualdad de distribución de covariables. La potencia y la precisión siguen siendo aproximadas. No garantiza el comportamiento para una base histórica concreta.
+
+## Reestimación, restricciones y sensibilidad
+
+```{r matching}
+causal_calculate(causal_example("T5"))[c("status", "n_treated_final", "n_additional")]
+causal_calculate(causal_example("T6A"))$status
+```
+
+M05 utiliza resúmenes; no implementa ni valida un algoritmo de emparejamiento. T6A muestra el rechazo de M02 para ATT, conservando la decisión de retirar esa variante.
+
+```{r sensitivity}
+sensibilidad <- causal_sensitivity(causal_example("T3"), "delta", c(0.03, 0.2, 0.3))
+vapply(sensibilidad$rows, function(x) x$result$status, "")
+```
+
+## Exportar y reproducir
+
+```{r export}
+archivos <- causal_export(resultado, tempfile("samplecausal-guia-"))
+recalculado <- causal_replay(archivos$saved_json)
+recalculado$n_analyzable
+```
+
+El JSON conserva la versión, entradas, fuentes y restricciones. Los archivos usan nombres únicos. La fecha de generación cambia al recalcular. La reproducción histórica usa motores archivados y puede contener textos superados: se conserva como evidencia histórica, no como recomendación vigente.
+
+## Interfaz gráfica
+
+```{r app, eval=FALSE}
+run_samplecausal()
+# Carpeta persistente opcional para las copias del servidor:
+run_samplecausal(export_dir = file.path(path.expand("~"), "SampleCausal-exports"))
+```
+
+La aplicación procesa los cálculos en el equipo local. Por defecto, sus copias de servidor son temporales; conservarlas mediante descarga o elegir una carpeta persistente. La evaluación del proyecto es exclusivamente computacional. Las pruebas de instalación no sustituyen a las simulaciones del estudio ni extienden sus dominios de validez.

@@ -1,0 +1,93 @@
+{
+  "names": {
+    "M01.weights": "Shook-Sa–Hudgens · efectos de diseño",
+    "M01.adjusted_variance": "Shook-Sa–Hudgens · varianza ajustada documentada",
+    "M02.table": "Austin · aproximación tabulada",
+    "M03.normal": "Liu–Yang–Li · solapamiento y desenlace",
+    "M06.prediction": "Erdmann–Edelmann–Kieser · controles externos",
+    "M05.summary": "Weber · reestimación del reclutamiento",
+    "M07.scalar": "Hong · factor de varianza del piloto",
+    "M07.bootstrap_summary": "Hong · resumen bootstrap",
+    "M08.aipw_external": "Bertolini · AIPW con controles externos",
+    "E01.cox_ate": "Yang–Liu–Li · Cox marginal"
+  },
+  "labels": {
+    "r": "Proporción tratada",
+    "delta": "Efecto",
+    "sd0": "Desviación estándar sin tratamiento",
+    "sd1": "Desviación estándar con tratamiento",
+    "D0": "Efecto de diseño de controles",
+    "D1": "Efecto de diseño de tratados",
+    "p0": "Riesgo marginal sin tratamiento",
+    "p1": "Riesgo marginal con tratamiento",
+    "q0": "Varianza ajustada de controles",
+    "q1": "Varianza ajustada de tratados",
+    "c": "Discriminación",
+    "sd_common": "Desviación estándar común",
+    "phi": "Solapamiento",
+    "rho2": "Correlación al cuadrado",
+    "S": "Desviación marginal de Y(0)",
+    "n0": "Controles externos",
+    "p": "Número de covariables",
+    "residual_var0": "Varianza residual externa",
+    "residual_var1": "Varianza residual nueva",
+    "alpha": "Significación",
+    "target_power": "Potencia objetivo",
+    "sample_size": "Muestra analizable",
+    "half_width": "Semianchura",
+    "confidence": "Confianza",
+    "loss": "Pérdida adicional",
+    "n_control": "Controles disponibles",
+    "n_treated_interim": "Tratados intermedios",
+    "mean_resampling_match_rate": "Tasa de emparejamiento",
+    "alpha_ci": "Error del límite de emparejamiento",
+    "gamma": "Fracción efectiva externa",
+    "kappa2": "Varianza residual",
+    "HR": "Hazard ratio marginal",
+    "d1": "Probabilidad de evento observada en tratados",
+    "d0": "Probabilidad de evento observada en controles",
+    "V_stable": "Factor de varianza estabilizado"
+  },
+  "limitations": {
+    "M01.weights": [
+      "Aproximación por variabilidad de pesos: omite la asociación pesos–desenlace.",
+      "Los riesgos y las varianzas se refieren a los desenlaces potenciales marginales."
+    ],
+    "M01.adjusted_variance": [
+      "Se requieren las varianzas ajustadas de la sección 6 de Shook-Sa–Hudgens.",
+      "No se ajustó un piloto en esta aplicación ni se verificó empíricamente su procedencia."
+    ],
+    "M02.table": [
+      "Aproximación de una tabla de regresión, con varianza común.",
+      "No se extrapolan la discriminación ni las proporciones tabuladas.",
+      "La discriminación no sustituye el modelo del desenlace."
+    ],
+    "M03.normal": [
+      "Efecto homogéneo y modelo continuo restringido.",
+      "Integración normal con momentos aproximados; no integración literal de logit-Beta.",
+      "Los efectos en poblaciones ponderadas no son universalmente conservadores."
+    ],
+    "M06.prediction": [
+      "Modelo lineal, covariables normales de igual distribución y errores independientes.",
+      "La planificación es incondicional; no garantiza igual potencia para cada base histórica fija."
+    ],
+    "M05.summary": [
+      "Calcula a partir de un resumen de remuestreos; no realiza el emparejamiento.",
+      "El número de pares requiere una justificación previa compatible con el análisis final.",
+      "No establece por sí solo la potencia del análisis causal."
+    ],
+    "M07.scalar": [
+      "Preprint experimental; el factor debe corresponder al piloto, alternativa y análisis previstos."
+    ],
+    "M07.bootstrap_summary": [
+      "Preprint experimental; el cuantil bootstrap no garantiza una probabilidad de alcanzar potencia."
+    ],
+    "M08.aipw_external": [
+      "Preprint experimental: efecto constante, varianza residual común y condiciones de AIPW."
+    ],
+    "E01.cox_ate": [
+      "Preprint experimental: HR marginal, IPTW normalizado y condiciones de censura/conjunto de riesgo.",
+      "Las probabilidades de evento ya incorporan censura."
+    ]
+  }
+}

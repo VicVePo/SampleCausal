@@ -1,0 +1,855 @@
+{
+  "T1": {
+    "status": "ok",
+    "software_version": "1.0.1",
+    "implementation": "R",
+    "contract_version": "2.2",
+    "module_id": "M01.weights",
+    "method": "Shook-Sa–Hudgens · efectos de diseño",
+    "source_id": "M01",
+    "source": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8141060/",
+      "version": "Biometrics 2022; equations 5,7 and section 6"
+    },
+    "estimand": "ATE",
+    "outcome": "binary",
+    "calculation": "sample_size",
+    "calculation_mode": "full_normal_integer",
+    "inputs": {
+      "r": 0.4,
+      "p0": 0.2,
+      "p1": 0.3,
+      "D0": 1.4,
+      "D1": 1.8,
+      "delta": 0.1,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "binary",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Fase 5 T1 — datos artificiales",
+      "effect_units": "diferencia absoluta de riesgos",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        },
+        "p0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        },
+        "p1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        }
+      },
+      "loss": 0
+    },
+    "provenance": {
+      "r": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      },
+      "p0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      },
+      "p1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      },
+      "D0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      },
+      "D1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+      }
+    },
+    "assumptions_confirmed": true,
+    "n_meaning": "total",
+    "limitations": [
+      "Aproximación por variabilidad de pesos: omite la asociación pesos–desenlace.",
+      "Los riesgos y las varianzas se refieren a los desenlaces potenciales marginales.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M01: anclaje binario compatible; continuo de mejor solapamiento conservador y el restante inconcluso. No se extrapola a otros escenarios.",
+      "El análisis requiere observar tratados y controles. Se rechaza una muestra total menor que 2; este mínimo estructural no garantiza representación de ambos grupos, estimabilidad de la propensión ni validez de la aproximación normal con muestras pequeñas."
+    ],
+    "research_only": false,
+    "all_inputs": {
+      "r": 0.4,
+      "p0": 0.2,
+      "p1": 0.3,
+      "D0": 1.4,
+      "D1": 1.8,
+      "delta": 0.1,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "binary",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "scenario_name": "Fase 5 T1 — datos artificiales",
+      "effect_units": "diferencia absoluta de riesgos",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        },
+        "p0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        },
+        "p1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T1."
+        }
+      },
+      "loss": 0
+    },
+    "effect_scale": "diferencia absoluta de riesgos",
+    "active_restrictions": [
+      "Aproximación por variabilidad de pesos: omite la asociación pesos–desenlace.",
+      "Los riesgos y las varianzas se refieren a los desenlaces potenciales marginales.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M01: anclaje binario compatible; continuo de mejor solapamiento conservador y el restante inconcluso. No se extrapola a otros escenarios.",
+      "El análisis requiere observar tratados y controles. Se rechaza una muestra total menor que 2; este mínimo estructural no garantiza representación de ambos grupos, estimabilidad de la propensión ni validez de la aproximación normal con muestras pequeñas."
+    ],
+    "source_version": "Biometrics 2022; equations 5,7 and section 6",
+    "n_analyzable": 1035,
+    "n_recruit_expected": 1035,
+    "intermediates": {
+      "var0": 0.16,
+      "var1": 0.21,
+      "n_quantile_raw": 1034.74397831169,
+      "power_limit": 1,
+      "power_at_previous_n": 0.799718826906267,
+      "A": 1.31833333333333,
+      "B": 0
+    },
+    "variance_at_n": 0.00127375201288245,
+    "effect": 0.1,
+    "power_recalculated": 0.800097971134985,
+    "power_limit": 1,
+    "expected_group_counts": {
+      "treated": 414,
+      "control": 621
+    },
+    "justification": "Fase 5 T1 — datos artificiales. Se utilizó Shook-Sa–Hudgens · efectos de diseño (SampleCausal R 1.0.1), para ATE. El cálculo corresponde a 1035 participantes en total; potencia normal 0.800098. Parámetros: Proporción tratada=0.4; Riesgo marginal sin tratamiento=0.2; Riesgo marginal con tratamiento=0.3; Efecto de diseño de controles=1.4; Efecto de diseño de tratados=1.8; Efecto=0.1; Significación=0.05; Potencia objetivo=0.8; Pérdida adicional=0. Modo: full_normal_integer. Fuente: https://pmc.ncbi.nlm.nih.gov/articles/PMC8141060/ Aproximación por variabilidad de pesos: omite la asociación pesos–desenlace. Los riesgos y las varianzas se refieren a los desenlaces potenciales marginales. Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes. M01: anclaje binario compatible; continuo de mejor solapamiento conservador y el restante inconcluso. No se extrapola a otros escenarios. El análisis requiere observar tratados y controles. Se rechaza una muestra total menor que 2; este mínimo estructural no garantiza representación de ambos grupos, estimabilidad de la propensión ni validez de la aproximación normal con muestras pequeñas."
+  },
+  "T2": {
+    "status": "ok",
+    "software_version": "1.0.1",
+    "implementation": "R",
+    "contract_version": "2.2",
+    "module_id": "M03.normal",
+    "method": "Liu–Yang–Li · solapamiento y desenlace",
+    "source_id": "M03",
+    "source": {
+      "url": "https://arxiv.org/html/2501.11181v5",
+      "version": "v5; PSpower 2.0.0 source read, not executed"
+    },
+    "estimand": "ATO",
+    "outcome": "continuous",
+    "calculation": "sample_size",
+    "calculation_mode": "full_normal_integer",
+    "inputs": {
+      "r": 0.4,
+      "phi": 0.85,
+      "rho2": 0.02,
+      "S": 1,
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M03.normal",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATO",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "homogeneous_effect": true,
+      "scenario_name": "Fase 5 T2 — datos artificiales",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        },
+        "rho2": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        },
+        "S": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        }
+      },
+      "loss": 0
+    },
+    "provenance": {
+      "r": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      },
+      "phi": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      },
+      "rho2": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      },
+      "S": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      },
+      "delta": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+      }
+    },
+    "assumptions_confirmed": true,
+    "n_meaning": "total",
+    "limitations": [
+      "Efecto homogéneo y modelo continuo restringido.",
+      "Integración normal con momentos aproximados; no integración literal de logit-Beta.",
+      "Los efectos en poblaciones ponderadas no son universalmente conservadores.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M03: ATO compatible en el anclaje estudiado; ATE, ATT y ATC inconclusos. El resultado de tensión heterogénea no habilita efectos heterogéneos.",
+      "El análisis requiere observar tratados y controles. Se rechaza una muestra total menor que 2; este mínimo estructural no garantiza representación de ambos grupos, estimabilidad de la propensión ni validez de la aproximación normal con muestras pequeñas."
+    ],
+    "research_only": false,
+    "all_inputs": {
+      "r": 0.4,
+      "phi": 0.85,
+      "rho2": 0.02,
+      "S": 1,
+      "delta": 0.2,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M03.normal",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATO",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "homogeneous_effect": true,
+      "scenario_name": "Fase 5 T2 — datos artificiales",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        },
+        "phi": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        },
+        "rho2": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        },
+        "S": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T2."
+        }
+      },
+      "loss": 0
+    },
+    "effect_scale": "unidades del desenlace",
+    "active_restrictions": [
+      "Efecto homogéneo y modelo continuo restringido.",
+      "Integración normal con momentos aproximados; no integración literal de logit-Beta.",
+      "Los efectos en poblaciones ponderadas no son universalmente conservadores.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M03: ATO compatible en el anclaje estudiado; ATE, ATT y ATC inconclusos. El resultado de tensión heterogénea no habilita efectos heterogéneos.",
+      "El análisis requiere observar tratados y controles. Se rechaza una muestra total menor que 2; este mínimo estructural no garantiza representación de ambos grupos, estimabilidad de la propensión ni validez de la aproximación normal con muestras pequeñas."
+    ],
+    "source_version": "v5; PSpower 2.0.0 source read, not executed",
+    "n_analyzable": 1097,
+    "n_recruit_expected": 1097,
+    "intermediates": {
+      "a": 1.25887113215761,
+      "b": 1.88830669823642,
+      "mu": -0.564991794984766,
+      "sigma2": 1.8790312705561,
+      "phi_residual": 1.11022302462516e-16,
+      "distribution": "normal_moment_matched",
+      "H": 0.177451170921677,
+      "center": -0.32106435510264,
+      "integration_error_H": 3.91803477816426e-14,
+      "standardized_variance": 5.58701916330069,
+      "n_quantile_raw": 1096.29603715627,
+      "power_limit": 1,
+      "power_at_previous_n": 0.799895039520952,
+      "A": 5.58701916330069,
+      "B": 0
+    },
+    "variance_at_n": 0.0050929983257071,
+    "effect": 0.2,
+    "power_recalculated": 0.80025264317638,
+    "power_limit": 1,
+    "expected_group_counts": {
+      "treated": 438.8,
+      "control": 658.2
+    },
+    "justification": "Fase 5 T2 — datos artificiales. Se utilizó Liu–Yang–Li · solapamiento y desenlace (SampleCausal R 1.0.1), para ATO. El cálculo corresponde a 1097 participantes en total; potencia normal 0.800253. Parámetros: Proporción tratada=0.4; Solapamiento=0.85; Correlación al cuadrado=0.02; Desviación marginal de Y(0)=1; Efecto=0.2; Significación=0.05; Potencia objetivo=0.8; Pérdida adicional=0. Modo: full_normal_integer. Fuente: https://arxiv.org/html/2501.11181v5 Efecto homogéneo y modelo continuo restringido. Integración normal con momentos aproximados; no integración literal de logit-Beta. Los efectos en poblaciones ponderadas no son universalmente conservadores. Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes. M03: ATO compatible en el anclaje estudiado; ATE, ATT y ATC inconclusos. El resultado de tensión heterogénea no habilita efectos heterogéneos. El análisis requiere observar tratados y controles. Se rechaza una muestra total menor que 2; este mínimo estructural no garantiza representación de ambos grupos, estimabilidad de la propensión ni validez de la aproximación normal con muestras pequeñas."
+  },
+  "T3": {
+    "status": "ok",
+    "software_version": "1.0.1",
+    "implementation": "R",
+    "contract_version": "2.2",
+    "module_id": "M06.prediction",
+    "method": "Erdmann–Edelmann–Kieser · controles externos",
+    "source_id": "M06",
+    "source": {
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200023",
+      "version": "2023; section 2.4 and Table 2b"
+    },
+    "estimand": "ATT_new_study",
+    "outcome": "continuous",
+    "calculation": "sample_size",
+    "calculation_mode": "full_normal_integer",
+    "inputs": {
+      "n0": 750,
+      "p": 5,
+      "residual_var0": 1,
+      "residual_var1": 1,
+      "delta": 0.3,
+      "alpha": 0.025,
+      "target_power": 0.9,
+      "module_id": "M06.prediction",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT_new_study",
+      "mode": "full_normal_integer",
+      "test": "one_sided",
+      "direction": "increase",
+      "scenario_name": "Fase 5 T3 — datos artificiales",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "n0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        },
+        "p": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        },
+        "residual_var0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        },
+        "residual_var1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        }
+      },
+      "loss": 0
+    },
+    "provenance": {
+      "n0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      },
+      "p": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      },
+      "residual_var0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      },
+      "residual_var1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      },
+      "delta": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+      }
+    },
+    "assumptions_confirmed": true,
+    "n_meaning": "new_treated",
+    "limitations": [
+      "Modelo lineal, covariables normales de igual distribución y errores independientes.",
+      "La planificación es incondicional; no garantiza igual potencia para cada base histórica fija.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M06-E1 utiliza la esperanza de varianza gaussiana centrada, con denominador n0-p-2 (p excluye el intercepto), en una aproximación normal de potencia y precisión. Es una enmienda local explícita de la expresión publicada, no una fe de erratas de sus autores. La entrega pública exige al menos 100 grados de libertad residuales en cada grupo: n0-p-1 y n1-p-1. Esta restricción operativa no es un mínimo universal. La cuadrícula E1 resultó compatible; no certifica toda combinación de parámetros. Se requieren covariables con la misma distribución normal en ambas poblaciones, modelo lineal correcto y errores normales independientes. Se promedia sobre historias posibles; no se garantiza potencia ni error tipo I para una historia concreta (T06 original: 79.5% frente a 90% previsto). La precisión es semianchura normal calculada con varianza media, no una probabilidad de alcanzar esa anchura."
+    ],
+    "research_only": false,
+    "all_inputs": {
+      "n0": 750,
+      "p": 5,
+      "residual_var0": 1,
+      "residual_var1": 1,
+      "delta": 0.3,
+      "alpha": 0.025,
+      "target_power": 0.9,
+      "module_id": "M06.prediction",
+      "calculation": "sample_size",
+      "outcome": "continuous",
+      "estimand": "ATT_new_study",
+      "mode": "full_normal_integer",
+      "test": "one_sided",
+      "direction": "increase",
+      "scenario_name": "Fase 5 T3 — datos artificiales",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "n0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        },
+        "p": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        },
+        "residual_var0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        },
+        "residual_var1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        },
+        "delta": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T3."
+        }
+      },
+      "loss": 0
+    },
+    "effect_scale": "unidades del desenlace",
+    "active_restrictions": [
+      "Modelo lineal, covariables normales de igual distribución y errores independientes.",
+      "La planificación es incondicional; no garantiza igual potencia para cada base histórica fija.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M06-E1 utiliza la esperanza de varianza gaussiana centrada, con denominador n0-p-2 (p excluye el intercepto), en una aproximación normal de potencia y precisión. Es una enmienda local explícita de la expresión publicada, no una fe de erratas de sus autores. La entrega pública exige al menos 100 grados de libertad residuales en cada grupo: n0-p-1 y n1-p-1. Esta restricción operativa no es un mínimo universal. La cuadrícula E1 resultó compatible; no certifica toda combinación de parámetros. Se requieren covariables con la misma distribución normal en ambas poblaciones, modelo lineal correcto y errores normales independientes. Se promedia sobre historias posibles; no se garantiza potencia ni error tipo I para una historia concreta (T06 original: 79.5% frente a 90% previsto). La precisión es semianchura normal calculada con varianza media, no una probabilidad de alcanzar esa anchura."
+    ],
+    "source_version": "2023; section 2.4 and Table 2b",
+    "method_version": "centered_gaussian_E1",
+    "method_amendment": {
+      "id": "E1",
+      "contract_version": "2.2",
+      "base_contract_version": "2.1",
+      "method_version": "centered_gaussian_E1",
+      "software_version": "1.0.0",
+      "variance_formula": "p>0: A=v1+v0*p/(n0-p-2); B=v0/n0*(1+p/(n0-p-2)); p=0: A=v1; B=v0/n0",
+      "operational_restrictions": [
+        "n0-p-1 >= 100",
+        "n1-p-1 >= 100",
+        "p excludes intercept",
+        "normal covariates with common distribution; Gaussian independent residuals; correctly specified linear prediction model",
+        "normal approximation is not exact unconditional power or a fixed-history guarantee"
+      ],
+      "historical_formula": "n0-p-1; only archived replay or explicit research variant published_2023",
+      "derivation_source": "https://jbds.isdsa.org/public/journals/1/html/v1n2/p2/",
+      "original_source": "https://doi.org/10.1002/bimj.202200023",
+      "note": "Local mathematical amendment, not an author-issued erratum.",
+      "validation": {
+        "extension": "E1",
+        "principal_geometries": 135,
+        "additional_geometries": 10,
+        "R_per_geometry": 100000,
+        "raw_OLS_datasets": 22300,
+        "primary_power_cells": 540,
+        "gate_passed": true,
+        "scope": "focal grid, not a universal guarantee"
+      }
+    },
+    "n_analyzable": 140,
+    "n_recruit_expected": 140,
+    "intermediates": {
+      "variance_version": "centered_gaussian_E1",
+      "amendment": "E1",
+      "inverse_scatter_denominator": 743,
+      "inference": "normal_approximation_using_expected_variance",
+      "n_quantile_raw": 139.377004416479,
+      "power_limit": 0.999999999764342,
+      "power_at_previous_n": 0.899348996751326,
+      "A": 1.00672947510094,
+      "B": 0.00134230596680126
+    },
+    "variance_at_n": 0.00853323078895084,
+    "effect": 0.3,
+    "power_recalculated": 0.901066225109462,
+    "power_limit": 0.999999999764342,
+    "n_external_fixed": 750,
+    "justification": "Fase 5 T3 — datos artificiales. Se utilizó Erdmann–Edelmann–Kieser · controles externos (SampleCausal R 1.0.1), para ATT_new_study. El cálculo corresponde a 140 tratados nuevos; potencia normal 0.901066. Parámetros: Controles externos=750; Número de covariables=5; Varianza residual externa=1; Varianza residual nueva=1; Efecto=0.3; Significación=0.025; Potencia objetivo=0.9; Pérdida adicional=0. Modo: full_normal_integer. Fuente: https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200023 Modelo lineal, covariables normales de igual distribución y errores independientes. La planificación es incondicional; no garantiza igual potencia para cada base histórica fija. Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes. M06-E1 utiliza la esperanza de varianza gaussiana centrada, con denominador n0-p-2 (p excluye el intercepto), en una aproximación normal de potencia y precisión. Es una enmienda local explícita de la expresión publicada, no una fe de erratas de sus autores. La entrega pública exige al menos 100 grados de libertad residuales en cada grupo: n0-p-1 y n1-p-1. Esta restricción operativa no es un mínimo universal. La cuadrícula E1 resultó compatible; no certifica toda combinación de parámetros. Se requieren covariables con la misma distribución normal en ambas poblaciones, modelo lineal correcto y errores normales independientes. Se promedia sobre historias posibles; no se garantiza potencia ni error tipo I para una historia concreta (T06 original: 79.5% frente a 90% previsto). La precisión es semianchura normal calculada con varianza media, no una probabilidad de alcanzar esa anchura."
+  },
+  "T4": {
+    "status": "unattainable",
+    "message": "La aproximación normal seleccionada no alcanza la potencia solicitada; esto no demuestra imposibilidad para cualquier otro análisis.",
+    "details": {
+      "power_limit": 0.126907771276952,
+      "A": 1.00672947510094,
+      "B": 0.00134230596680126
+    },
+    "software_version": "1.0.1"
+  },
+  "T5": {
+    "status": "ok",
+    "software_version": "1.0.1",
+    "implementation": "R",
+    "contract_version": "2.2",
+    "module_id": "M05.summary",
+    "method": "Weber · reestimación del reclutamiento",
+    "source_id": "M05",
+    "source": {
+      "url": "https://link.springer.com/article/10.1186/s12874-019-0763-3",
+      "version": "2019; equations 2-3"
+    },
+    "estimand": "externally_justified_matched_target",
+    "outcome": "outcome_agnostic",
+    "calculation": "recruitment_reestimation",
+    "calculation_mode": "published_resampling_summary",
+    "inputs": {
+      "n_control": 150,
+      "n_treated_interim": 75,
+      "mean_resampling_match_rate": 0.8,
+      "alpha_ci": 0.05,
+      "module_id": "M05.summary",
+      "calculation": "recruitment_reestimation",
+      "outcome": "outcome_agnostic",
+      "estimand": "externally_justified_matched_target",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "pair_target_justification": "Meta artificial de 150 pares, justificada fuera de esta reestimación.",
+      "resampling_metadata": "Resumen artificial: media de tasa 0.8; no se ejecuta remuestreo en la calculadora.",
+      "scenario_name": "Fase 5 T5 — datos artificiales",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "n_control": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+        },
+        "n_treated_interim": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+        },
+        "mean_resampling_match_rate": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+        },
+        "alpha_ci": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+        }
+      },
+      "loss": 0
+    },
+    "provenance": {
+      "n_control": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+      },
+      "n_treated_interim": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+      },
+      "mean_resampling_match_rate": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+      },
+      "alpha_ci": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+      }
+    },
+    "assumptions_confirmed": true,
+    "n_meaning": "treated_total_and_additional",
+    "limitations": [
+      "Calcula a partir de un resumen de remuestreos; no realiza el emparejamiento.",
+      "El número de pares requiere una justificación previa compatible con el análisis final.",
+      "No establece por sí solo la potencia del análisis causal.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M05 tiene verificación aritmética de resúmenes; no se simuló ni validó un algoritmo de emparejamiento."
+    ],
+    "research_only": false,
+    "all_inputs": {
+      "n_control": 150,
+      "n_treated_interim": 75,
+      "mean_resampling_match_rate": 0.8,
+      "alpha_ci": 0.05,
+      "module_id": "M05.summary",
+      "calculation": "recruitment_reestimation",
+      "outcome": "outcome_agnostic",
+      "estimand": "externally_justified_matched_target",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "increase",
+      "pair_target_justification": "Meta artificial de 150 pares, justificada fuera de esta reestimación.",
+      "resampling_metadata": "Resumen artificial: media de tasa 0.8; no se ejecuta remuestreo en la calculadora.",
+      "scenario_name": "Fase 5 T5 — datos artificiales",
+      "effect_units": "unidades del desenlace",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "n_control": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+        },
+        "n_treated_interim": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+        },
+        "mean_resampling_match_rate": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+        },
+        "alpha_ci": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T5."
+        }
+      },
+      "loss": 0
+    },
+    "effect_scale": "unidades del desenlace",
+    "active_restrictions": [
+      "Calcula a partir de un resumen de remuestreos; no realiza el emparejamiento.",
+      "El número de pares requiere una justificación previa compatible con el análisis final.",
+      "No establece por sí solo la potencia del análisis causal.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M05 tiene verificación aritmética de resúmenes; no se simuló ni validó un algoritmo de emparejamiento."
+    ],
+    "source_version": "2019; equations 2-3",
+    "n_treated_final": 201,
+    "n_additional": 126,
+    "intermediates": {
+      "lower_match_rate": 0.746279305498702
+    },
+    "justification": "Fase 5 T5 — datos artificiales. Se utilizó Weber · reestimación del reclutamiento (SampleCausal R 1.0.1), para externally_justified_matched_target. Se estiman 201 tratados totales y 126 adicionales; límite inferior de emparejamiento 0.746279. Parámetros: Controles disponibles=150; Tratados intermedios=75; Tasa de emparejamiento=0.8; Error del límite de emparejamiento=0.05; Pérdida adicional=0. Modo: published_resampling_summary. Fuente: https://link.springer.com/article/10.1186/s12874-019-0763-3 Calcula a partir de un resumen de remuestreos; no realiza el emparejamiento. El número de pares requiere una justificación previa compatible con el análisis final. No establece por sí solo la potencia del análisis causal. Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes. M05 tiene verificación aritmética de resúmenes; no se simuló ni validó un algoritmo de emparejamiento."
+  },
+  "T6A": {
+    "status": "disabled_variant",
+    "message": "M02 para ATT está retirado de planificación general: A05 presentó error tipo I de 6.74% (IC Monte Carlo 6.08-7.47%), superior al margen preespecificado. La fórmula se conserva solo para reproducción de investigación.",
+    "details": {
+      "evidence": "phase4_A05"
+    },
+    "software_version": "1.0.1"
+  },
+  "T6B": {
+    "status": "ok",
+    "software_version": "1.0.1",
+    "implementation": "R",
+    "contract_version": "2.2",
+    "module_id": "M01.weights",
+    "method": "Shook-Sa–Hudgens · efectos de diseño",
+    "source_id": "M01",
+    "source": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8141060/",
+      "version": "Biometrics 2022; equations 5,7 and section 6"
+    },
+    "estimand": "ATE",
+    "outcome": "binary",
+    "calculation": "sample_size",
+    "calculation_mode": "full_normal_integer",
+    "inputs": {
+      "r": 0.65,
+      "p0": 0.73,
+      "p1": 0.58,
+      "D0": 1.12,
+      "D1": 1.04,
+      "delta": -0.15,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "binary",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "decrease",
+      "scenario_name": "Fase 5 T6B — datos artificiales",
+      "effect_units": "diferencia absoluta de riesgos",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        },
+        "p0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        },
+        "p1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        }
+      },
+      "loss": 0
+    },
+    "provenance": {
+      "r": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      },
+      "p0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      },
+      "p1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      },
+      "D0": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      },
+      "D1": {
+        "kind": "explicit_assumption",
+        "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+      }
+    },
+    "assumptions_confirmed": true,
+    "n_meaning": "total",
+    "limitations": [
+      "Aproximación por variabilidad de pesos: omite la asociación pesos–desenlace.",
+      "Los riesgos y las varianzas se refieren a los desenlaces potenciales marginales.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M01: anclaje binario compatible; continuo de mejor solapamiento conservador y el restante inconcluso. No se extrapola a otros escenarios.",
+      "El análisis requiere observar tratados y controles. Se rechaza una muestra total menor que 2; este mínimo estructural no garantiza representación de ambos grupos, estimabilidad de la propensión ni validez de la aproximación normal con muestras pequeñas."
+    ],
+    "research_only": false,
+    "all_inputs": {
+      "r": 0.65,
+      "p0": 0.73,
+      "p1": 0.58,
+      "D0": 1.12,
+      "D1": 1.04,
+      "delta": -0.15,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "module_id": "M01.weights",
+      "calculation": "sample_size",
+      "outcome": "binary",
+      "estimand": "ATE",
+      "mode": "full_normal_integer",
+      "test": "two_sided",
+      "direction": "decrease",
+      "scenario_name": "Fase 5 T6B — datos artificiales",
+      "effect_units": "diferencia absoluta de riesgos",
+      "assumptions_confirmed": true,
+      "demo": false,
+      "provenance": {
+        "r": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        },
+        "p0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        },
+        "p1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        },
+        "D0": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        },
+        "D1": {
+          "kind": "explicit_assumption",
+          "detail": "Escenario artificial preespecificado de fase 5; ficha T6B."
+        }
+      },
+      "loss": 0
+    },
+    "effect_scale": "diferencia absoluta de riesgos",
+    "active_restrictions": [
+      "Aproximación por variabilidad de pesos: omite la asociación pesos–desenlace.",
+      "Los riesgos y las varianzas se refieren a los desenlaces potenciales marginales.",
+      "Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes.",
+      "M01: anclaje binario compatible; continuo de mejor solapamiento conservador y el restante inconcluso. No se extrapola a otros escenarios.",
+      "El análisis requiere observar tratados y controles. Se rechaza una muestra total menor que 2; este mínimo estructural no garantiza representación de ambos grupos, estimabilidad de la propensión ni validez de la aproximación normal con muestras pequeñas."
+    ],
+    "source_version": "Biometrics 2022; equations 5,7 and section 6",
+    "n_analyzable": 356,
+    "n_recruit_expected": 356,
+    "intermediates": {
+      "var0": 0.1971,
+      "var1": 0.2436,
+      "n_quantile_raw": 355.983324058158,
+      "power_limit": 1,
+      "power_at_previous_n": 0.798915186802349,
+      "A": 1.02048,
+      "B": 0
+    },
+    "variance_at_n": 0.00286651685393258,
+    "effect": -0.15,
+    "power_recalculated": 0.800019330558178,
+    "power_limit": 1,
+    "expected_group_counts": {
+      "treated": 231.4,
+      "control": 124.6
+    },
+    "justification": "Fase 5 T6B — datos artificiales. Se utilizó Shook-Sa–Hudgens · efectos de diseño (SampleCausal R 1.0.1), para ATE. El cálculo corresponde a 356 participantes en total; potencia normal 0.800019. Parámetros: Proporción tratada=0.65; Riesgo marginal sin tratamiento=0.73; Riesgo marginal con tratamiento=0.58; Efecto de diseño de controles=1.12; Efecto de diseño de tratados=1.04; Efecto=-0.15; Significación=0.05; Potencia objetivo=0.8; Pérdida adicional=0. Modo: full_normal_integer. Fuente: https://pmc.ncbi.nlm.nih.gov/articles/PMC8141060/ Aproximación por variabilidad de pesos: omite la asociación pesos–desenlace. Los riesgos y las varianzas se refieren a los desenlaces potenciales marginales. Fase 4 original: 18 escenarios; extensión E1: 135 geometrías principales y 10 de anclaje o tensión para M06. La evidencia es específica de estos modelos. Evaluación técnica con escenarios ficticios y simulaciones; no incluye estudios con participantes. M01: anclaje binario compatible; continuo de mejor solapamiento conservador y el restante inconcluso. No se extrapola a otros escenarios. El análisis requiere observar tratados y controles. Se rechaza una muestra total menor que 2; este mínimo estructural no garantiza representación de ambos grupos, estimabilidad de la propensión ni validez de la aproximación normal con muestras pequeñas."
+  }
+}

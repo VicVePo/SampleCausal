@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>{{ headContent() }}<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SampleCausal · Planificación del estudio</title><link rel="stylesheet" href="style.css"><script defer src="app.js"></script></head>
+<body>
+<header><a class="brand" href="/">Sample<span>Causal</span></a><span class="badge">Calculadora de investigación · R / Shiny · 1.0.1</span></header>
+<main>
+<div class="intro"><p class="eyebrow">PLANIFICACIÓN PARA INFERENCIA CAUSAL</p><h1>Una muestra coherente<br>con tu pregunta causal.</h1><p>Define la población, el análisis y los supuestos. Calcula con métodos documentados y conserva las fuentes, la versión y la justificación del escenario.</p></div>
+<div class="notice">Métodos evaluados en escenarios específicos. Revisa los supuestos y las restricciones antes de interpretar el resultado. M06 utiliza la enmienda de varianza E1; M02 para ATT continúa retirado.</div>
+<div class="layout">
+<form id="form" novalidate>
+<section><div class="sectiontitle"><span class="step">01</span><h2>Pregunta y diseño</h2></div>
+<div class="grid">
+<label class="full">Nombre del escenario<input id="scenario" placeholder="Ej.: cohorte principal, escenario conservador" required></label>
+<label>Diseño<select id="design"><option value="cohort">Cohorte con tratados y controles</option><option value="external">Estudio con controles externos</option><option value="matching">Reestimación para emparejamiento</option></select></label>
+<label>Desenlace<select id="outcome"></select></label>
+<label>Población del efecto<select id="estimand"></select></label>
+<label>Información para planificar<select id="method"></select></label>
+</div>
+<div id="methodnote" class="methodnote"></div><a id="source" target="_blank" rel="noopener">Consultar publicación del método ↗</a>
+</section>
+<section><div class="sectiontitle"><span class="step">02</span><h2>Cálculo y parámetros</h2><button type="button" id="example" class="quiet">Cargar ejemplo</button></div>
+<p id="demolabel" class="demo" hidden>Ejemplo ilustrativo: los valores no corresponden a un estudio real.</p>
+<div class="grid"><label class="full">Resultado solicitado<select id="operation"></select></label></div>
+<div id="parameters" class="grid"></div>
+<div id="special"></div>
+</section>
+<section><div class="sectiontitle"><span class="step">03</span><h2>Procedencia y supuestos</h2></div>
+<p class="muted">Registra la procedencia de cada valor. Un supuesto explícito es admisible; debe quedar identificado como tal.</p>
+<div class="grid"><label class="full" id="unitslabel">Unidades del efecto<input id="units" placeholder="Ej.: puntos de la escala, mmHg"></label></div>
+<div id="provenance"></div>
+<label class="check"><input type="checkbox" id="confirm"><span>Confirmo que el diseño, el estimando y los supuestos del método corresponden al escenario documentado.</span></label>
+<button class="primary" id="calculate" type="submit">Calcular escenario <span>→</span></button>
+<p id="feedback" role="alert"></p>
+</section>
+</form>
+<aside><section id="result" aria-live="polite" tabindex="-1"><p class="eyebrow">RESULTADO DEL ESCENARIO</p><div class="empty"><span>n</span><h2>El cálculo comienza<br>con los supuestos.</h2><p>Completa los parámetros para ver el resultado, sus restricciones y una justificación exportable.</p></div></section>
+<section id="sensitivity" hidden><h2>Sensibilidad</h2><p class="muted">Varía un parámetro manteniendo el método y la población del efecto.</p><label>Parámetro<select id="sensitivityparameter"></select></label><label>Hasta cinco valores, separados por ;<input id="sensitivityvalues" placeholder="0,3; 0,4; 0,5"></label><button type="button" id="sensitivitybutton" class="secondary">Comparar escenarios</button><div id="sensitivityresult" aria-live="polite"></div><button type="button" id="exportsensitivity" class="quiet" hidden>Exportar sensibilidad JSON</button></section>
+<p id="sensitivityexportstatus" class="muted" role="status"></p>
+</aside>
+</div>
+<footer>SampleCausal · Fórmulas existentes, supuestos explícitos y resultados trazables.<br>Procesamiento local. Los cálculos no sustituyen la justificación del diseño causal.</footer>
+</main>{{ downloads }}
+</body></html>

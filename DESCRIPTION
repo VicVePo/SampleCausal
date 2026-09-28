@@ -1,0 +1,20 @@
+Package: SampleCausal
+Title: Sample Size Planning for Selected Causal Inference Methods
+Version: 1.0.1
+Authors@R: person("Victor J.", "Vera-Ponce", email = "victor_jvp@hotmail.com", role = c("aut", "cre"))
+Description: Calculates sample sizes, normal-approximation power, precision,
+    and minimum detectable effects for selected causal-inference planning
+    methods. Includes weighting methods, external-control prediction and
+    recruitment reestimation from matching summaries. Retains explicit
+    assumptions, method restrictions, references and historical replay.
+    Provides a local Shiny interface and artificial examples. The corrected
+    M06-E1 variance is explicitly identified as a local mathematical amendment.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+Imports: jsonlite, shiny, stats
+Suggests: digest, testthat (>= 3.0.0), knitr, markdown
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.0

@@ -1,0 +1,9 @@
+{
+  "purpose": "Static labels and payload adaptation only; equations implemented natively in R.",
+  "sources": {
+    "outputs\\SampleCausal_App\\engine.py": "059104d9977bae3dbf7c2177cb4e147d79a50339925da16eeedae1e822a5bc15",
+    "outputs\\SampleCausal_App\\verify.py": "61ea97c44a55bb0a29603fe3560cf211d51e96a4119cdf8ca398e1d98d50bd10",
+    "outputs\\SampleCausal_App\\data\\contract.json": "a9ac48ee04c34672617488b07ed0a29b6a9f96425b60d6d7baaa9dd75e133d58",
+    "outputs\\SampleCausal_App\\data\\reference_cases.json": "d856aada86b2d8a04c71fa5636aaf2b4ee455fff6ea5a2ff1af4214557a806b3"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "E1",
+  "contract_version": "2.2",
+  "base_contract_version": "2.1",
+  "method_version": "centered_gaussian_E1",
+  "software_version": "1.0.0",
+  "variance_formula": "p>0: A=v1+v0*p/(n0-p-2); B=v0/n0*(1+p/(n0-p-2)); p=0: A=v1; B=v0/n0",
+  "operational_restrictions": [
+    "n0-p-1 >= 100",
+    "n1-p-1 >= 100",
+    "p excludes intercept",
+    "normal covariates with common distribution; Gaussian independent residuals; correctly specified linear prediction model",
+    "normal approximation is not exact unconditional power or a fixed-history guarantee"
+  ],
+  "historical_formula": "n0-p-1; only archived replay or explicit research variant published_2023",
+  "derivation_source": "https://jbds.isdsa.org/public/journals/1/html/v1n2/p2/",
+  "original_source": "https://doi.org/10.1002/bimj.202200023",
+  "note": "Local mathematical amendment, not an author-issued erratum.",
+  "validation": {
+    "extension": "E1",
+    "principal_geometries": 135,
+    "additional_geometries": 10,
+    "R_per_geometry": 100000,
+    "raw_OLS_datasets": 22300,
+    "primary_power_cells": 540,
+    "gate_passed": true,
+    "scope": "focal grid, not a universal guarantee"
+  }
+}

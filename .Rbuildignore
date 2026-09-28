@@ -1,0 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.github$
+^\.git$
+^\.gitignore$
+^LICENSE\.md$
+^CITATION\.cff$
+^tools$
+^RELEASE_CHECKLIST\.md$
+^.*\.tar\.gz$
+^.*\.zip$

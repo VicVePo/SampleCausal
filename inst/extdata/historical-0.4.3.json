@@ -1,0 +1,194 @@
+{
+  "status": "ok",
+  "software_version": "0.4.3",
+  "implementation": "R",
+  "contract_version": "2.1",
+  "generated_at": "2026-09-28T12:53:06.488171Z",
+  "module_id": "M06.prediction",
+  "method": "Erdmann–Edelmann–Kieser · controles externos",
+  "source_id": "M06",
+  "source": {
+    "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200023",
+    "version": "2023; section 2.4 and Table 2b"
+  },
+  "estimand": "ATT_new_study",
+  "outcome": "continuous",
+  "calculation": "sample_size",
+  "calculation_mode": "full_normal_integer",
+  "inputs": {
+    "module_id": "M06.prediction",
+    "outcome": "continuous",
+    "estimand": "ATT_new_study",
+    "calculation": "sample_size",
+    "scenario_name": "Demostración F19",
+    "effect_units": "unidades del desenlace",
+    "assumptions_confirmed": true,
+    "provenance": {
+      "n0": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "p": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "residual_var0": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "residual_var1": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "delta": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "alpha": {
+        "kind": "explicit_assumption",
+        "detail": "Supuesto explícito de demostración: 0.025"
+      },
+      "target_power": {
+        "kind": "explicit_assumption",
+        "detail": "Supuesto explícito de demostración: 0.9"
+      },
+      "loss": {
+        "kind": "explicit_assumption",
+        "detail": "Supuesto explícito de demostración: 0"
+      }
+    },
+    "demo": true,
+    "n0": 750,
+    "p": 5,
+    "residual_var0": 1,
+    "residual_var1": 1,
+    "delta": 0.3,
+    "alpha": 0.025,
+    "target_power": 0.9,
+    "loss": 0,
+    "test": "one_sided",
+    "direction": "increase",
+    "mode": "full_normal_integer"
+  },
+  "provenance": {
+    "n0": {
+      "kind": "explicit_assumption",
+      "detail": "Caso congelado F19; valores ilustrativos para verificación."
+    },
+    "p": {
+      "kind": "explicit_assumption",
+      "detail": "Caso congelado F19; valores ilustrativos para verificación."
+    },
+    "residual_var0": {
+      "kind": "explicit_assumption",
+      "detail": "Caso congelado F19; valores ilustrativos para verificación."
+    },
+    "residual_var1": {
+      "kind": "explicit_assumption",
+      "detail": "Caso congelado F19; valores ilustrativos para verificación."
+    },
+    "delta": {
+      "kind": "explicit_assumption",
+      "detail": "Caso congelado F19; valores ilustrativos para verificación."
+    },
+    "alpha": {
+      "kind": "explicit_assumption",
+      "detail": "Supuesto explícito de demostración: 0.025"
+    },
+    "target_power": {
+      "kind": "explicit_assumption",
+      "detail": "Supuesto explícito de demostración: 0.9"
+    },
+    "loss": {
+      "kind": "explicit_assumption",
+      "detail": "Supuesto explícito de demostración: 0"
+    }
+  },
+  "assumptions_confirmed": true,
+  "n_meaning": "new_treated",
+  "limitations": [
+    "Modelo lineal, covariables normales de igual distribución y errores independientes.",
+    "La planificación es incondicional; no garantiza igual potencia para cada base histórica fija.",
+    "Fase 4 completada en 18 escenarios; no acredita validez universal. La evaluación con participantes sigue pendiente.",
+    "M06 planifica promediando sobre posibles bases históricas. No garantiza potencia ni error tipo I condicionales a una base concreta: T06 alcanzó 79.5% frente a 90% previsto. A11 fue inconcluso por cobertura y A12 compatible. La expresión publicada se conserva como aproximación de la varianza media. Su discrepancia respecto al momento exacto puede ser importante cuando los controles son pocos respecto de las covariables. Para el análisis OLS evaluado se requieren n > p + 1 tratados nuevos y, con p > 0, n0 > p + 2 controles; cumplir esos mínimos no garantiza calibración con muestras pequeñas ni valida ese rango."
+  ],
+  "research_only": false,
+  "all_inputs": {
+    "module_id": "M06.prediction",
+    "outcome": "continuous",
+    "estimand": "ATT_new_study",
+    "calculation": "sample_size",
+    "scenario_name": "Demostración F19",
+    "effect_units": "unidades del desenlace",
+    "assumptions_confirmed": true,
+    "provenance": {
+      "n0": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "p": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "residual_var0": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "residual_var1": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "delta": {
+        "kind": "explicit_assumption",
+        "detail": "Caso congelado F19; valores ilustrativos para verificación."
+      },
+      "alpha": {
+        "kind": "explicit_assumption",
+        "detail": "Supuesto explícito de demostración: 0.025"
+      },
+      "target_power": {
+        "kind": "explicit_assumption",
+        "detail": "Supuesto explícito de demostración: 0.9"
+      },
+      "loss": {
+        "kind": "explicit_assumption",
+        "detail": "Supuesto explícito de demostración: 0"
+      }
+    },
+    "demo": true,
+    "n0": 750,
+    "p": 5,
+    "residual_var0": 1,
+    "residual_var1": 1,
+    "delta": 0.3,
+    "alpha": 0.025,
+    "target_power": 0.9,
+    "loss": 0,
+    "test": "one_sided",
+    "direction": "increase",
+    "mode": "full_normal_integer"
+  },
+  "effect_scale": "unidades del desenlace",
+  "active_restrictions": [
+    "Modelo lineal, covariables normales de igual distribución y errores independientes.",
+    "La planificación es incondicional; no garantiza igual potencia para cada base histórica fija.",
+    "Fase 4 completada en 18 escenarios; no acredita validez universal. La evaluación con participantes sigue pendiente.",
+    "M06 planifica promediando sobre posibles bases históricas. No garantiza potencia ni error tipo I condicionales a una base concreta: T06 alcanzó 79.5% frente a 90% previsto. A11 fue inconcluso por cobertura y A12 compatible. La expresión publicada se conserva como aproximación de la varianza media. Su discrepancia respecto al momento exacto puede ser importante cuando los controles son pocos respecto de las covariables. Para el análisis OLS evaluado se requieren n > p + 1 tratados nuevos y, con p > 0, n0 > p + 2 controles; cumplir esos mínimos no garantiza calibración con muestras pequeñas ni valida ese rango."
+  ],
+  "source_version": "2023; section 2.4 and Table 2b",
+  "n_analyzable": 140,
+  "n_recruit_expected": 140,
+  "intermediates": {
+    "n_quantile_raw": 139.375519471013,
+    "power_limit": 0.999999999764397,
+    "power_at_previous_n": 0.899351561507513,
+    "A": 1.00672043010753,
+    "B": 0.00134229390681004
+  },
+  "variance_at_n": 0.0085331541218638,
+  "effect": 0.3,
+  "power_recalculated": 0.901068765491858,
+  "power_limit": 0.999999999764397,
+  "n_external_fixed": 750,
+  "justification": "Demostración F19. Se utilizó Erdmann–Edelmann–Kieser · controles externos (SampleCausal R 0.4.3), para ATT_new_study. El cálculo corresponde a 140 tratados nuevos; potencia normal 0.901069. Parámetros: Controles externos=750; Número de covariables=5; Varianza residual externa=1; Varianza residual nueva=1; Efecto=0.3; Significación=0.025; Potencia objetivo=0.9; Pérdida adicional=0. Modo: full_normal_integer. Fuente: https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200023 Modelo lineal, covariables normales de igual distribución y errores independientes. La planificación es incondicional; no garantiza igual potencia para cada base histórica fija. Fase 4 completada en 18 escenarios; no acredita validez universal. La evaluación con participantes sigue pendiente. M06 planifica promediando sobre posibles bases históricas. No garantiza potencia ni error tipo I condicionales a una base concreta: T06 alcanzó 79.5% frente a 90% previsto. A11 fue inconcluso por cobertura y A12 compatible. La expresión publicada se conserva como aproximación de la varianza media. Su discrepancia respecto al momento exacto puede ser importante cuando los controles son pocos respecto de las covariables. Para el análisis OLS evaluado se requieren n > p + 1 tratados nuevos y, con p > 0, n0 > p + 2 controles; cumplir esos mínimos no garantiza calibración con muestras pequeñas ni valida ese rango."
+}

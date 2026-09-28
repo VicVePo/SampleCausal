@@ -1,0 +1,1215 @@
+{
+  "project": "SampleCausal",
+  "phase": 2,
+  "version": "2.1",
+  "date": "2026-09-26",
+  "status": "specification_complete_implementation_pending",
+  "supersedes": "SampleCausal_Fase2_Contrato.json",
+  "defaults": {
+    "test": "two_sided",
+    "mode": "full_normal_integer",
+    "experimental_enabled": false,
+    "alpha_and_power": "visible examples only; require deliberate input or acceptance",
+    "unknown_design_parameters": "never silently imputed"
+  },
+  "common_inputs": {
+    "alpha": {
+      "label": "Significación por prueba",
+      "domain": "0 < alpha < 0.5",
+      "unit": "dimensionless",
+      "required": false,
+      "when": "sample_size | power | minimum_detectable_effect"
+    },
+    "target_power": {
+      "label": "Potencia objetivo",
+      "domain": "0.5 < target_power < 1",
+      "unit": "dimensionless",
+      "required": false
+    },
+    "test": {
+      "label": "Tipo de prueba",
+      "domain": "two_sided | one_sided",
+      "unit": "dimensionless",
+      "required": false,
+      "when": "sample_size | power | minimum_detectable_effect"
+    },
+    "direction": {
+      "label": "Dirección unilateral",
+      "domain": "increase | decrease",
+      "unit": "dimensionless",
+      "required": false
+    },
+    "calculation": {
+      "label": "Resultado solicitado",
+      "domain": "sample_size | power | precision | minimum_detectable_effect | recruitment_reestimation",
+      "unit": "dimensionless",
+      "required": true
+    },
+    "mode": {
+      "label": "Aproximación utilizada",
+      "domain": "full_normal_integer | quantile_formula",
+      "unit": "dimensionless",
+      "required": true,
+      "default": "full_normal_integer"
+    },
+    "sample_size": {
+      "label": "Muestra analizable",
+      "domain": "positive_integer",
+      "unit": "persons",
+      "required": false
+    },
+    "loss": {
+      "label": "Fracción adicional no evaluable",
+      "domain": "0 <= loss < 1",
+      "unit": "dimensionless",
+      "required": false,
+      "default": 0
+    },
+    "confidence": {
+      "label": "Nivel de confianza para precisión",
+      "domain": "0.5 < confidence < 1",
+      "unit": "dimensionless",
+      "required": false
+    },
+    "half_width": {
+      "label": "Semianchura deseada",
+      "domain": "positive_finite",
+      "unit": "effect_scale",
+      "required": false
+    },
+    "source_for_each_design_parameter": {
+      "label": "Procedencia de las entradas",
+      "domain": "pilot | publication | explicit_assumption | sensitivity_scenario",
+      "unit": "metadata",
+      "required": true
+    },
+    "effect_units": {
+      "label": "Unidades/escala del efecto",
+      "domain": "nonempty_text",
+      "unit": "metadata",
+      "required": true
+    },
+    "assumptions": {
+      "label": "Compatibilidad con el diseño y estimador",
+      "domain": "explicit_declarations",
+      "unit": "metadata",
+      "required": true
+    }
+  },
+  "operation_input_rules": {
+    "precedence": "These conditional rules override generic required flags; unsupported functions remain disabled.",
+    "common_metadata": [
+      "source_for_each_design_parameter",
+      "effect_units",
+      "assumptions"
+    ],
+    "sample_size": {
+      "require": [
+        "alpha",
+        "target_power",
+        "test",
+        "mode",
+        "module_variance_parameters",
+        "effect"
+      ],
+      "solve": "sample_size",
+      "do_not_require": [
+        "sample_size",
+        "confidence",
+        "half_width"
+      ],
+      "direction": "require when one_sided; effect must match intended direction for target_power>0.5"
+    },
+    "power": {
+      "require": [
+        "alpha",
+        "test",
+        "sample_size",
+        "module_variance_parameters",
+        "effect"
+      ],
+      "solve": "power",
+      "do_not_require": [
+        "target_power",
+        "confidence",
+        "half_width"
+      ],
+      "direction": "require when one_sided; retain sign even when effect opposes direction; never use abs"
+    },
+    "precision": {
+      "require": [
+        "confidence",
+        "half_width",
+        "module_variance_parameters"
+      ],
+      "solve": "sample_size",
+      "do_not_require": [
+        "alpha",
+        "target_power",
+        "test",
+        "direction",
+        "sample_size",
+        "delta"
+      ],
+      "note": "An outcome risk needed to determine variance remains required, even if delta itself is not."
+    },
+    "minimum_detectable_effect": {
+      "require": [
+        "alpha",
+        "target_power",
+        "test",
+        "sample_size",
+        "direction",
+        "module_variance_parameters"
+      ],
+      "solve": "effect",
+      "do_not_require": [
+        "delta",
+        "confidence",
+        "half_width"
+      ],
+      "note": "Recompute variance along effect-dependent path; M01 binary solves p1 on specified branch."
+    },
+    "recruitment_reestimation": {
+      "only_module": "M05.summary",
+      "require": [
+        "n_control",
+        "n_treated_interim",
+        "mean_resampling_match_rate",
+        "alpha_ci",
+        "resampling_metadata",
+        "pair_target_justification"
+      ],
+      "solve": [
+        "n_treated_final",
+        "n_additional"
+      ],
+      "do_not_require": [
+        "alpha",
+        "target_power",
+        "test",
+        "mode",
+        "sample_size",
+        "delta",
+        "confidence",
+        "half_width",
+        "loss",
+        "effect_units"
+      ]
+    }
+  },
+  "modules": [
+    {
+      "id": "M01.weights",
+      "status": "principal",
+      "estimands": [
+        "ATE"
+      ],
+      "outcomes": [
+        "continuous",
+        "binary"
+      ],
+      "inputs": {
+        "r": {
+          "label": "Proporción tratada",
+          "domain": "0 < r < 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "delta": {
+          "label": "Efecto de interés",
+          "domain": "finite; nonzero for sample_size",
+          "unit": "effect_scale",
+          "required": true
+        },
+        "sd0": {
+          "label": "Desviación de Y(0)",
+          "domain": "positive_finite",
+          "unit": "outcome_units",
+          "required": false,
+          "when": "continuous"
+        },
+        "sd1": {
+          "label": "Desviación de Y(1)",
+          "domain": "positive_finite",
+          "unit": "outcome_units",
+          "required": false,
+          "when": "continuous"
+        },
+        "p0": {
+          "label": "Riesgo marginal potencial sin tratamiento",
+          "domain": "0 < p0 < 1",
+          "unit": "dimensionless",
+          "required": false,
+          "when": "binary"
+        },
+        "p1": {
+          "label": "Riesgo marginal potencial con tratamiento",
+          "domain": "0 < p1 < 1",
+          "unit": "dimensionless",
+          "required": false,
+          "when": "binary; except MDE"
+        },
+        "D0": {
+          "label": "Efecto de diseño Kish, controles",
+          "domain": "D0 >= 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "D1": {
+          "label": "Efecto de diseño Kish, tratados",
+          "domain": "D1 >= 1",
+          "unit": "dimensionless",
+          "required": true
+        }
+      },
+      "variance_formula": "A=D1*var1/r+D0*var0/(1-r); B=0; binary: varz=pz*(1-pz), delta=p1-p0",
+      "functions": [
+        "sample_size",
+        "power",
+        "precision",
+        "minimum_detectable_effect"
+      ],
+      "source": "M01",
+      "n_means": "total",
+      "restrictions": [
+        "ATE Hajek IPTW",
+        "weights-only approximation omits outcome remainder"
+      ],
+      "optional_weights_summary": {
+        "per_arm": [
+          "n_arm",
+          "sum_w",
+          "sum_w2"
+        ],
+        "D": "n_arm*sum_w2/sum_w^2",
+        "domain": "n_arm positive integer; sum_w>0; sum_w2>0; D>=1"
+      },
+      "mde": "fix p0,r,D0,D1; branch by direction; recompute p1(1-p1) at each trial p1 in (0,1)",
+      "variance_parameter_inputs": {
+        "continuous": [
+          "r",
+          "sd0",
+          "sd1",
+          "D0",
+          "D1"
+        ],
+        "binary": [
+          "r",
+          "p0",
+          "p1",
+          "D0",
+          "D1"
+        ],
+        "binary_MDE": [
+          "r",
+          "p0",
+          "D0",
+          "D1"
+        ]
+      },
+      "effect_input": "continuous: delta; binary: derive delta=p1-p0; reject conflicting supplied delta"
+    },
+    {
+      "id": "M01.adjusted_variance",
+      "status": "principal_advanced",
+      "estimands": [
+        "ATE"
+      ],
+      "outcomes": [
+        "continuous"
+      ],
+      "inputs": {
+        "r": {
+          "label": "Proporción tratada",
+          "domain": "0 < r < 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "delta": {
+          "label": "Efecto de interés",
+          "domain": "finite; nonzero for sample_size",
+          "unit": "effect_scale",
+          "required": true
+        },
+        "q0": {
+          "label": "Varianza ajustada, controles",
+          "domain": "positive_finite",
+          "unit": "outcome_units_squared",
+          "required": true
+        },
+        "q1": {
+          "label": "Varianza ajustada, tratados",
+          "domain": "positive_finite",
+          "unit": "outcome_units_squared",
+          "required": true
+        },
+        "pilot_definition": {
+          "label": "Estimador, población, tamaño y estimación de varianza",
+          "domain": "required_metadata",
+          "unit": "metadata",
+          "required": true
+        },
+        "q_definition": {
+          "label": "Definición exacta de la varianza ajustada",
+          "domain": "M01_section6_sigma2_times_deff_with_remainder",
+          "unit": "metadata",
+          "required": true
+        }
+      },
+      "variance_formula": "A=q1/r+q0/(1-r); B=0",
+      "functions": [
+        "sample_size",
+        "power",
+        "precision",
+        "minimum_detectable_effect"
+      ],
+      "source": "M01",
+      "n_means": "total",
+      "restrictions": [
+        "no second multiplication by D",
+        "no automatic raw-pilot correction",
+        "q is not SE and not raw outcome variance",
+        "q must use M01 section6 definition for known-weight planning variance",
+        "do not substitute marginal sandwich variances from joint propensity estimation; they may omit covariance of the contrast"
+      ],
+      "variance_parameter_inputs": [
+        "r",
+        "q0",
+        "q1",
+        "pilot_definition",
+        "q_definition"
+      ],
+      "effect_input": "delta; omitted when solving MDE or precision"
+    },
+    {
+      "id": "M02.table",
+      "status": "principal_restricted",
+      "estimands": [
+        "ATE",
+        "ATT",
+        "ATO"
+      ],
+      "outcomes": [
+        "continuous"
+      ],
+      "inputs": {
+        "r": {
+          "label": "Proporción tabulada",
+          "domain": "one_of(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9)",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "c": {
+          "label": "Discriminación del modelo de propensión",
+          "domain": "0.55 <= c <= 0.95",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "sd_common": {
+          "label": "Desviación común compatible con la planificación",
+          "domain": "positive_finite",
+          "unit": "outcome_units",
+          "required": true
+        },
+        "delta": {
+          "label": "Efecto de interés",
+          "domain": "finite; nonzero for sample_size",
+          "unit": "effect_scale",
+          "required": true
+        },
+        "scheme": {
+          "label": "Ponderación",
+          "domain": "ATE | ATT | ATO",
+          "unit": "dimensionless",
+          "required": true
+        }
+      },
+      "variance_formula": "vif=exp(b0+b1*c+b2*c^2+br); require vif>=1; A=sd_common^2*vif/(r*(1-r)); B=0",
+      "functions": [
+        "sample_size",
+        "power",
+        "precision",
+        "minimum_detectable_effect"
+      ],
+      "source": "M02",
+      "n_means": "total",
+      "coefficients": {
+        "ATE": [
+          10.88,
+          -34.53,
+          28.03
+        ],
+        "ATT": [
+          8.65,
+          -29.9,
+          24.84
+        ],
+        "ATO": [
+          1.18,
+          -4.59,
+          4.21
+        ],
+        "MW": [
+          1.0,
+          -4.11,
+          3.94
+        ],
+        "EW": [
+          1.27,
+          -4.85,
+          4.44
+        ]
+      },
+      "prevalence_adjustment_columns": [
+        "ATE",
+        "ATT",
+        "ATO",
+        "MW",
+        "EW"
+      ],
+      "prevalence_adjustment": {
+        "0.1": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "0.2": [
+          -0.16,
+          0.09,
+          0.06,
+          0.07,
+          0.05
+        ],
+        "0.3": [
+          -0.25,
+          0.24,
+          0.09,
+          0.09,
+          0.07
+        ],
+        "0.4": [
+          -0.34,
+          0.36,
+          0.1,
+          0.1,
+          0.08
+        ],
+        "0.5": [
+          -0.36,
+          0.39,
+          0.1,
+          0.1,
+          0.09
+        ],
+        "0.6": [
+          -0.36,
+          0.48,
+          0.1,
+          0.1,
+          0.08
+        ],
+        "0.7": [
+          -0.21,
+          0.55,
+          0.09,
+          0.09,
+          0.07
+        ],
+        "0.8": [
+          -0.18,
+          0.61,
+          0.06,
+          0.07,
+          0.05
+        ],
+        "0.9": [
+          0,
+          0.66,
+          0,
+          0,
+          0
+        ]
+      },
+      "internal_only_schemes": [
+        "MW",
+        "EW"
+      ],
+      "restrictions": [
+        "common outcome variance",
+        "no prevalence interpolation",
+        "no c extrapolation",
+        "no VIF clamping",
+        "no automatic simulated fallback",
+        "table is approximate"
+      ],
+      "variance_parameter_inputs": [
+        "r",
+        "c",
+        "sd_common",
+        "scheme"
+      ],
+      "effect_input": "delta; omitted when solving MDE or precision"
+    },
+    {
+      "id": "M03.normal",
+      "status": "principal_model_restricted",
+      "estimands": [
+        "ATE",
+        "ATT",
+        "ATC",
+        "ATO"
+      ],
+      "outcomes": [
+        "continuous"
+      ],
+      "inputs": {
+        "r": {
+          "label": "Proporción tratada",
+          "domain": "0 < r < 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "phi": {
+          "label": "Solapamiento Bhattacharyya",
+          "domain": "0 < phi <= 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "rho2": {
+          "label": "Correlación al cuadrado con predictor de propensión",
+          "domain": "0 <= rho2 < 1; require 0 if phi=1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "S": {
+          "label": "Desviación marginal de Y(0), población original",
+          "domain": "positive_finite",
+          "unit": "outcome_units",
+          "required": true
+        },
+        "delta": {
+          "label": "Efecto de interés",
+          "domain": "finite; nonzero for sample_size",
+          "unit": "effect_scale",
+          "required": true
+        },
+        "homogeneous_effect": {
+          "label": "Efecto homogéneo para el modelo de planificación",
+          "domain": "must_be_true",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "estimand": {
+          "label": "Población de interés",
+          "domain": "ATE | ATT | ATC | ATO",
+          "unit": "dimensionless",
+          "required": true
+        }
+      },
+      "variance_formula": "A=S^2*Vtilde; B=0; see equations in definitive specification",
+      "functions": [
+        "sample_size",
+        "power",
+        "precision",
+        "minimum_detectable_effect"
+      ],
+      "source": "M03",
+      "n_means": "total",
+      "working_distribution": "Normal(mu,sigma2) for logit propensity; Beta-matched moments",
+      "root": {
+        "parameter": "log(k)",
+        "a": "k*r",
+        "b": "k*(1-r)",
+        "equation": "phi=Gamma(a+0.5)/sqrt(a)/Gamma(a)*Gamma(b+0.5)/sqrt(b)/Gamma(b)",
+        "bracket": "expand adaptively until opposite signs; no arbitrary a,b>=0.5 lower bound",
+        "residual_tolerance": 1e-08
+      },
+      "moments": {
+        "mu": "digamma(a)-digamma(b)",
+        "sigma2": "trigamma(a)+trigamma(b)"
+      },
+      "tilts": {
+        "ATE": "1",
+        "ATT": "e",
+        "ATC": "1-e",
+        "ATO": "e*(1-e)"
+      },
+      "integration": {
+        "variable": "standard Normal",
+        "method": "adaptive quadrature with stable log integrands",
+        "audit_method": "Gaussian quadrature",
+        "tolerance": 1e-08,
+        "failure": "numeric_failure"
+      },
+      "phi1": {
+        "Vtilde": "1/(r*(1-r))",
+        "rho2": "undefined correlation; use explicit constant branch"
+      },
+      "restrictions": [
+        "no binary module in release1",
+        "no literal logit-Beta integration",
+        "do not assert conservative ordering for all WATE",
+        "ATC obtained by group exchange"
+      ],
+      "variance_parameter_inputs": [
+        "r",
+        "phi",
+        "rho2",
+        "S",
+        "homogeneous_effect",
+        "estimand"
+      ],
+      "effect_input": "delta; omitted when solving MDE or precision"
+    },
+    {
+      "id": "M06.prediction",
+      "status": "principal_separate_design",
+      "estimands": [
+        "ATT_new_study"
+      ],
+      "outcomes": [
+        "continuous"
+      ],
+      "inputs": {
+        "n0": {
+          "label": "Controles externos fijos",
+          "domain": "positive_integer",
+          "unit": "persons",
+          "required": true
+        },
+        "p": {
+          "label": "Covariables sin intercepto",
+          "domain": "nonnegative_integer",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "residual_var0": {
+          "label": "Varianza residual externa",
+          "domain": "positive_finite",
+          "unit": "outcome_units_squared",
+          "required": true
+        },
+        "residual_var1": {
+          "label": "Varianza residual nueva",
+          "domain": "positive_finite",
+          "unit": "outcome_units_squared",
+          "required": true
+        },
+        "delta": {
+          "label": "Efecto de interés",
+          "domain": "finite; nonzero for sample_size",
+          "unit": "effect_scale",
+          "required": true
+        }
+      },
+      "variance_formula": "require n0>p+1; A=residual_var1+residual_var0*p/(n0-p-1); B=residual_var0/n0+residual_var0*p/(n0*(n0-p-1))",
+      "functions": [
+        "sample_size",
+        "power",
+        "precision",
+        "minimum_detectable_effect"
+      ],
+      "source": "M06",
+      "n_means": "new_treated",
+      "restrictions": [
+        "linear prediction model",
+        "same covariate distribution; multivariate normal covariate derivation",
+        "normal independent residuals",
+        "unconditional historical-sample uncertainty",
+        "no guarantee conditional on every observed historical dataset"
+      ],
+      "variance_parameter_inputs": [
+        "n0",
+        "p",
+        "residual_var0",
+        "residual_var1"
+      ],
+      "effect_input": "delta; omitted when solving MDE or precision"
+    },
+    {
+      "id": "M05.summary",
+      "status": "recruitment_complement",
+      "estimands": [
+        "externally_justified_matched_target"
+      ],
+      "outcomes": [
+        "outcome_agnostic"
+      ],
+      "inputs": {
+        "n_control": {
+          "label": "Controles/pares objetivo previamente justificados",
+          "domain": "positive_integer",
+          "unit": "persons",
+          "required": true
+        },
+        "n_treated_interim": {
+          "label": "Tratados intermedios",
+          "domain": "positive_integer <= n_control",
+          "unit": "persons",
+          "required": true
+        },
+        "mean_resampling_match_rate": {
+          "label": "Tasa media procedente del remuestreo prescrito",
+          "domain": "0 < rate <= 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "alpha_ci": {
+          "label": "Error para límite unilateral",
+          "domain": "0 < alpha_ci < 0.5",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "resampling_metadata": {
+          "label": "Número de remuestreos, semilla, algoritmo/caliper y fallos",
+          "domain": "required_metadata",
+          "unit": "metadata",
+          "required": true
+        },
+        "pair_target_justification": {
+          "label": "Justificación compatible con análisis emparejado",
+          "domain": "nonempty_text",
+          "unit": "metadata",
+          "required": true
+        }
+      },
+      "variance_formula": "lower=rate-z_(1-alpha_ci)*sqrt(rate*(1-rate)/n_control); require lower>0; final=ceil(n_control/lower); additional=max(0,final-n_treated_interim)",
+      "functions": [
+        "recruitment_reestimation"
+      ],
+      "source": "M05",
+      "n_means": "treated_total_and_additional",
+      "restrictions": [
+        "scalar summary step only",
+        "interim equal-size 1:1 resampling without replacement",
+        "does not fit propensity or perform matching",
+        "does not independently establish causal power"
+      ],
+      "variance_parameter_inputs": [
+        "n_control",
+        "n_treated_interim",
+        "mean_resampling_match_rate",
+        "alpha_ci",
+        "resampling_metadata",
+        "pair_target_justification"
+      ],
+      "effect_input": "not_applicable"
+    },
+    {
+      "id": "M07.scalar",
+      "status": "experimental_disabled",
+      "estimands": [
+        "marginal_population_effect"
+      ],
+      "outcomes": [
+        "continuous",
+        "binary"
+      ],
+      "inputs": {
+        "V_stable": {
+          "label": "Factor de varianza conjunta estabilizado",
+          "domain": "positive_finite",
+          "unit": "effect_scale_squared",
+          "required": true
+        },
+        "delta": {
+          "label": "Efecto de interés",
+          "domain": "finite; nonzero for sample_size",
+          "unit": "effect_scale",
+          "required": true
+        },
+        "effect_scale": {
+          "label": "Escala del modelo marginal",
+          "domain": "mean_difference | log_marginal_OR",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "pilot_definition": {
+          "label": "Tamaño, población, estimador, modelos, ajuste de propensión y procedencia",
+          "domain": "required_metadata",
+          "unit": "metadata",
+          "required": true
+        }
+      },
+      "variance_formula": "A=V_stable; B=0",
+      "functions": [
+        "sample_size",
+        "power",
+        "precision",
+        "minimum_detectable_effect"
+      ],
+      "source": "M07",
+      "n_means": "total",
+      "restrictions": [
+        "same pilot and final estimating equations",
+        "variance on intended planning alternative",
+        "no raw-pilot fitting",
+        "no count outcomes",
+        "fixed-V sensitivity is conditional on supplied V"
+      ],
+      "variance_parameter_inputs": [
+        "V_stable",
+        "effect_scale",
+        "pilot_definition"
+      ],
+      "effect_input": "delta; omitted when solving MDE or precision"
+    },
+    {
+      "id": "M07.bootstrap_summary",
+      "status": "experimental_disabled",
+      "estimands": [
+        "marginal_population_effect"
+      ],
+      "outcomes": [
+        "continuous",
+        "binary"
+      ],
+      "inputs": {
+        "V_bootstrap": {
+          "label": "Vector de factores de varianza",
+          "domain": "nonempty_array_of_positive_finite",
+          "unit": "effect_scale_squared",
+          "required": true
+        },
+        "functional": {
+          "label": "Funcional preespecificado",
+          "domain": "mean | q50 | q70 | q90",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "n_bootstrap_attempted": {
+          "label": "Remuestreos intentados",
+          "domain": "positive_integer",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "n_bootstrap_failed": {
+          "label": "Fallos",
+          "domain": "must_equal_zero_for_enabled_summary",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "seed": {
+          "label": "Semilla/procedencia del remuestreo",
+          "domain": "required_metadata",
+          "unit": "metadata",
+          "required": true
+        },
+        "pilot_definition": {
+          "label": "Definición del piloto y factor V=n_pilot*Var(beta1)",
+          "domain": "required_metadata",
+          "unit": "metadata",
+          "required": true
+        },
+        "delta": {
+          "label": "Efecto de interés",
+          "domain": "finite; nonzero for sample_size",
+          "unit": "effect_scale",
+          "required": true
+        },
+        "effect_scale": {
+          "label": "Escala del modelo marginal",
+          "domain": "mean_difference | log_marginal_OR",
+          "unit": "dimensionless",
+          "required": true
+        }
+      },
+      "variance_formula": "V_stable=selected_functional(V_bootstrap); A=V_stable; B=0",
+      "functions": [
+        "sample_size",
+        "power",
+        "precision",
+        "minimum_detectable_effect"
+      ],
+      "source": "M07",
+      "n_means": "total",
+      "quantile": "R type 7 / linear interpolation",
+      "restrictions": [
+        "length(vector)=attempted; no omitted failures",
+        "no nested UCB in release1",
+        "no probability-of-power guarantee from scalar variance quantile"
+      ],
+      "variance_parameter_inputs": [
+        "V_bootstrap",
+        "functional",
+        "n_bootstrap_attempted",
+        "n_bootstrap_failed",
+        "seed",
+        "pilot_definition",
+        "effect_scale"
+      ],
+      "effect_input": "delta; omitted when solving MDE or precision"
+    },
+    {
+      "id": "M08.aipw_external",
+      "status": "experimental_disabled",
+      "estimands": [
+        "ATT"
+      ],
+      "outcomes": [
+        "continuous"
+      ],
+      "inputs": {
+        "n0": {
+          "label": "Controles externos fijos",
+          "domain": "positive_integer",
+          "unit": "persons",
+          "required": true
+        },
+        "gamma": {
+          "label": "Fracción efectiva externa",
+          "domain": "0 < gamma <= 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "kappa2": {
+          "label": "Varianza residual común",
+          "domain": "positive_finite",
+          "unit": "outcome_units_squared",
+          "required": true
+        },
+        "delta": {
+          "label": "Efecto de interés",
+          "domain": "finite; nonzero for sample_size",
+          "unit": "effect_scale",
+          "required": true
+        }
+      },
+      "variance_formula": "A=kappa2; B=kappa2/(gamma*n0)",
+      "functions": [
+        "sample_size",
+        "power",
+        "precision",
+        "minimum_detectable_effect"
+      ],
+      "source": "M08",
+      "n_means": "new_treated",
+      "restrictions": [
+        "constant effect",
+        "common conditional residual variance",
+        "adequate nuisance estimation for AIPW variance",
+        "gamma provenance required; no silent gamma=1"
+      ],
+      "variance_parameter_inputs": [
+        "n0",
+        "gamma",
+        "kappa2"
+      ],
+      "effect_input": "delta; omitted when solving MDE or precision"
+    },
+    {
+      "id": "E01.cox_ate",
+      "status": "experimental_disabled",
+      "estimands": [
+        "marginal_population_Cox_HR"
+      ],
+      "outcomes": [
+        "survival"
+      ],
+      "inputs": {
+        "r": {
+          "label": "Proporción tratada",
+          "domain": "0 < r < 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "phi": {
+          "label": "Solapamiento",
+          "domain": "0 < phi <= 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "HR": {
+          "label": "Hazard ratio marginal",
+          "domain": "positive_finite; not 1 for size",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "d1": {
+          "label": "Probabilidad de evento observado, tratados",
+          "domain": "0 < d1 <= 1",
+          "unit": "dimensionless",
+          "required": true
+        },
+        "d0": {
+          "label": "Probabilidad de evento observado, controles",
+          "domain": "0 < d0 <= 1",
+          "unit": "dimensionless",
+          "required": true
+        }
+      },
+      "variance_formula": "tau=log(HR); l1=sqrt(r/(1-r))*exp(tau/2); l0=1/l1; d=r*d1+(1-r)*d0; A=(l1+l0)^2/d^2*(d1*r^2*l0^2*E_inv_e+d0*(1-r)^2*l1^2*E_inv_1e); B=0",
+      "functions": [
+        "sample_size",
+        "power"
+      ],
+      "source": "E01",
+      "n_means": "total",
+      "inverse_moments": {
+        "phi_lt_1": "(a+b-1)/(a-1) and (a+b-1)/(b-1); require a>1 and b>1",
+        "phi_eq_1": "1/r and 1/(1-r)"
+      },
+      "restrictions": [
+        "normalized IPTW marginal Cox",
+        "source censoring and risk-set approximations",
+        "A depends on HR",
+        "no ATT/ATO",
+        "no double inflation for censoring in d1,d0"
+      ],
+      "variance_parameter_inputs": [
+        "r",
+        "phi",
+        "HR",
+        "d1",
+        "d0"
+      ],
+      "effect_input": "HR; derive delta=log(HR)"
+    }
+  ],
+  "sources": {
+    "M01": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8141060/",
+      "version": "Biometrics 2022; equations 5,7 and section 6"
+    },
+    "M02": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9293235/",
+      "version": "Statistics in Medicine 2021; Table 1; Appendix A audited"
+    },
+    "M03": {
+      "url": "https://arxiv.org/html/2501.11181v5",
+      "version": "v5; PSpower 2.0.0 source read, not executed"
+    },
+    "M06": {
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200023",
+      "version": "2023; section 2.4 and Table 2b"
+    },
+    "M05": {
+      "url": "https://link.springer.com/article/10.1186/s12874-019-0763-3",
+      "version": "2019; equations 2-3"
+    },
+    "M07": {
+      "url": "https://arxiv.org/html/2604.21658v1",
+      "version": "v1 preprint"
+    },
+    "M08": {
+      "url": "https://arxiv.org/html/2605.12832v1",
+      "version": "v1 preprint"
+    },
+    "E01": {
+      "url": "https://arxiv.org/html/2605.10088v2",
+      "version": "v2 preprint"
+    }
+  },
+  "common_engine": {
+    "variance": "A/n+B",
+    "full_normal_two_sided": "Phi(abs(delta)/sqrt(v)-z_(1-alpha/2))+Phi(-abs(delta)/sqrt(v)-z_(1-alpha/2))",
+    "full_normal_one_sided": "Phi(direction*delta/sqrt(v)-z_(1-alpha))",
+    "quantile_n": "ceil(A/(delta^2/(zcrit+zpower)^2-B)) if denominator>0",
+    "integer_search": "check limit; bracket; bisection; verify P(n)>=target and P(n-1)<target",
+    "precision": "ceil(A/(h^2/z_(1-alpha_C/2)^2-B)) if denominator>0",
+    "recruitment": "ceil(n/(1-loss)); expected availability only",
+    "allocation": "r*n and (1-r)*n are expected cohort counts, not controlled assignment",
+    "max_n_policy": "implementation must disclose limit and computational_limit status; never report unattainable because of a cap"
+  },
+  "outputs_required": [
+    "module_id",
+    "source_id",
+    "source_version",
+    "estimand",
+    "outcome",
+    "effect_scale",
+    "all_inputs",
+    "input_provenance",
+    "assumptions",
+    "calculation_mode",
+    "n_meaning",
+    "intermediates",
+    "n_analyzable",
+    "power_recalculated",
+    "n_recruit_expected",
+    "active_restrictions",
+    "status",
+    "software_version"
+  ],
+  "result_states": {
+    "ok": "Cálculo dentro de los parámetros de la ruta; conservar limitaciones.",
+    "invalid_input": "Entrada ausente, fuera de dominio, sin escala o incompatible.",
+    "out_of_scope": "Combinación no especificada; no cambiar estimando automáticamente.",
+    "disabled_variant": "Variante experimental o en verificación interna no activada.",
+    "incoherent_approximation": "La aproximación tabulada vulnera una propiedad definitoria, p.ej. VIF<1.",
+    "unattainable": "No hay muestra finita con la información y objetivo solicitados.",
+    "infinite_moment": "La varianza de la fórmula exige un momento que diverge.",
+    "numeric_failure": "No se pudo resolver o integrar con precisión suficiente.",
+    "computational_limit": "El cálculo supera el límite implementado; no implica imposibilidad estadística."
+  },
+  "internal_only": [
+    "M02.table.MW",
+    "M02.table.EW"
+  ],
+  "excluded_variants": {
+    "M01.raw_pilot_correction": "Advanced variance input only.",
+    "M02.appendix_simulator": "Requested versus achieved c and code discrepancy; not used as automatic fallback.",
+    "M03.binary": "Restricted-model and scale concerns; M01 supplies principal binary route.",
+    "M03.logit_beta_integral": "Different numerical distribution; not silently substituted.",
+    "M05.raw_matching": "Only scalar summary calculation in version1.",
+    "M07.raw_pilot_fit": "External joint variance/bootstrap summary input only.",
+    "M07.nested_ucb": "Optional source extension beyond version1.",
+    "M07.count": "Outside fixed Phase1 outcome scope.",
+    "E01.ATT_ATO": "Separate variance approximation not enabled in version1.",
+    "reserves": [
+      "M04",
+      "M09",
+      "E02"
+    ]
+  },
+  "fixture_ids": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F07",
+    "F08",
+    "F09",
+    "F10",
+    "F11",
+    "F12",
+    "F13",
+    "F14",
+    "F15",
+    "F16",
+    "F17",
+    "F18",
+    "F19",
+    "F20",
+    "F21",
+    "F22",
+    "F23",
+    "F24",
+    "F25",
+    "F26",
+    "F27",
+    "F28",
+    "F29",
+    "F30",
+    "F31",
+    "F32",
+    "F33",
+    "F34"
+  ],
+  "arithmetic_checks_completed": 20,
+  "application_tests_completed": false,
+  "statistical_simulations_completed": false,
+  "user_study_completed": false,
+  "validation_document": "SampleCausal_Fase2_Definitiva_Validacion.md",
+  "release_gate": "arithmetic verification + targeted statistical characterization + correction of critical usability errors",
+  "revision_notes": [
+    "2.1: exact definition of M01 advanced variance; conditional input rules including M05; fixed-replicate validation protocol.",
+    "Arithmetic reference cases remain version 2.0: inputs and expected results unchanged by this audit."
+  ],
+  "note": "Contract, not an implemented or released calculator."
+}
